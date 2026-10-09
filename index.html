@@ -120,22 +120,50 @@
             padding-left: 1em;
             border-left: 2px solid #cce0f5;
         }
-        /* 快速跳转目录 居中、无下划线 */
+        /* ========== 快速跳转目录【修改后的样式】 ========== */
         .nav-box {
             padding: 20px;
             background: #f8f9fa;
             border-radius: 8px;
             margin-bottom: 10px;
-            text-align: center;
         }
-        .nav-box a {
-            display: inline-block;
-            margin: 4px 12px;
+        .nav-box > strong {
+            display:block;
+            text-align:center;
+            margin-bottom:12px;
+        }
+        /* 二级标题：横向排成一行，水平间距 */
+        .nav-main {
+            display:flex;
+            justify-content:center;
+            gap: 36px; /* 控制二级标题之间的横向间距，可自由调大/调小 */
+            flex-wrap: wrap;
+            margin-bottom:16px;
+        }
+        .nav-main a {
+            font-size:18px; /* 二级导航字体 */
             color: #0066cc;
             text-decoration: none;
+            font-weight:bold;
         }
-        .nav-box a:hover {
+        .nav-main a:hover {
             color: #004499;
+        }
+        /* 三级标题：竖排、左对齐，字体更小 */
+        .nav-sub {
+            display:flex;
+            flex-direction:column;
+            gap:6px;
+        }
+        .nav-sub a {
+            font-size:15px; /* 三级导航字体，比二级小 */
+            color:#225588;
+            text-decoration:none;
+            text-align:left;
+        }
+        .nav-sub a:hover {
+            color:#004499;
+            text-decoration:underline;
         }
         /* 全局展开/收起按钮 */
         .global-btn-group {
@@ -159,28 +187,51 @@
 </head>
 <body>
     <h1>冯金华的学术思想</h1>
-
     <!-- 仅个人简介链接，无正文 -->
     <div class="bio-link">
-        <a href="about.html">个人简介</a>
+        <a href="about.html"><strong>个人简介</strong></a>
     </div>
-
-    <p class="zenodo-note">成果全文存档于 Zenodo，配备永久 DOI 标识符</p>
-
-    <!-- 顶部快捷锚点导航 -->
+    <p class="zenodo-note"><strong>成果全文存档于 Zenodo，配备永久 DOI 标识符</strong></p>
+    <!-- ========== 顶部快捷锚点导航【重构HTML结构】 ========== -->
     <div class="nav-box">
-        <strong>快速跳转目录</strong><br/>
-        <a href="#part1">一、政治经济学</a>
-        <a href="#part2">二、编程经济学</a>
-        <a href="#part3">三、西方经济学</a>
+        <strong>快速跳转目录</strong>
+        <!-- 二级标题：一行横向 -->
+        <div class="nav-main">
+            <div>
+                <a href="#part1">一、政治经济学</a>
+                <!-- 属于part1的三级标题，竖向左对齐 -->
+                <div class="nav-sub">
+                    <a href="#part1-1">1. 价值决定</a>
+                    <a href="#part1-2">2. 价值转形</a>
+                    <a href="#part1-3">3. 再生产理论</a>
+                    <a href="#part1-4">4. 其他</a>
+                    <a href="#part1-5">5. 著作 马克思主义经济学：原理和应用</a>
+                </div>
+            </div>
+            <div>
+                <a href="#part2">二、编程经济学</a>
+                <!-- 属于part2的三级标题，竖向左对齐 -->
+                <div class="nav-sub">
+                    <a href="#part2-1">1. 马克思的再生产理论</a>
+                    <a href="#part2-2">2. 具有技术进步的马克思再生产理论</a>
+                    <a href="#part2-3">3. 马克思再生产理论的一般化</a>
+                </div>
+            </div>
+            <div>
+                <a href="#part3">三、西方经济学</a>
+                <!-- 属于part3的三级标题，竖向左对齐 -->
+                <div class="nav-sub">
+                    <a href="#part3-1">1. 分类一</a>
+                    <a href="#part3-2">2. 分类二</a>
+                </div>
+            </div>
+        </div>
     </div>
-
     <!-- 全局一键展开/收起 -->
     <div class="global-btn-group">
         <button class="global-btn" onclick="expandAll()">全部展开简介</button>
         <button class="global-btn" onclick="collapseAll()">全部收起简介</button>
     </div>
-
     <!-- 第一部分 政治经济学 -->
     <h2 id="part1">一、政治经济学</h2>
     <h3 id="part1-1">1. 价值决定</h3>
@@ -190,14 +241,12 @@
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">本文根据马克思主义经济学的基本原理，在假定等价交换以及一国经济的价值总量等于劳动总量的基础上，推导决定单位商品价值量的具体表达式。由此说明，在单位商品价值量的决定中，两种含义的社会必要劳动时间所起的作用都不可或缺，但又有所不同。特别是，在给定一国经济的劳动总量之后，首先可由社会必要劳动时间的第二种含义，决定该劳动总量在不同行业中的分配，即决定每一行业的社会必要劳动量或价值量，其次再由社会必要劳动时间的第一种含义，决定每一行业的社会必要劳动量或价值量在其所生产的每一商品上的分配，即决定单位商品的价值量。</div>
     </div>
-
     <h4 id="part1-1-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">论文题目</a></h4>
     <p class="paper-meta">作者 | 期刊 | 发表年份</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <h3 id="part1-2">2. 价值转形</h3>
     <h4 id="part1-2-1"><a href="https://doi.org/10.5281/zenodo.23180240" target="_blank">为什么价值转形是一个伪问题：回顾与总结</a></h4>
     <p class="paper-meta">冯金华 | 《政治经济学报》 | 2026</p>
@@ -205,21 +254,18 @@
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">本文回顾和总结“价值转形伪问题”研究的提出、争议和发展过程。该研究最初是基于生产价格总量等于价值总量、平均利润总量等于剩余价值总量的假定和再生产的条件，后来则放松了平均利润总量等于剩余价值总量的要求，即只需要满足生产价格总量等于价值总量的假定和再生产条件，再后来则进一步放松了再生产的条件，即只需要假定生产价格总量等于价值总量。最新的“伪问题”研究表明，商品按价值出售与等量资本获得等量利润没有任何矛盾，因而价值转形不仅是不可能的，而且是不必要的。</div>
     </div>
-
     <h4 id="part1-2-2"><a href="https://doi.org/10.5281/zenodo.23251858" target="_blank">商品按价值出售与等量资本获得等量利润有矛盾吗？</a></h4>
     <p class="paper-meta">冯金华 | 《中国经济问题》 | 2020</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">传统政治经济学之所以认为当商品按价值出售时，等量资本无法获得等量的利润，而如果等量资本要获得等量的利润，商品就不能按价值出售，是因为它假定了资本有机构成不同的各个部门具有完全相同且固定不变的剩余价值率。但是，在利润平均化的过程中，随着资本的流动，各个部门的预付资本和产品价值都会变化，从而，剩余价值率和资本有机构成亦会变化。一般而言，剩余价值率和资本有机构成的变化最终会导致不同部门的以价值表示的利润率趋于一致，从而，在商品按价值出售时，这些部门的以价格表示的利润率最终亦会趋于一致，即等量资本最终可以获得等量的利润。因此，“相等的平均利润率”确实“能够并且必须”“以价值规律为基础来形成”。价值规律不仅适用于利润平均化之前，而且也适用于利润平均化之后，不仅适用于简单商品经济，而且也适用于发达的资本主义商品经济。 </div>
     </div>
-
     <h4 id="part1-2-3"><a href="https://doi.org/10.5281/zenodo.23252082" target="_blank">商品按生产价格出售和按价值出售有区别吗？</a></h4>
     <p class="paper-meta">冯金华 | 《政治经济学报》 | 2019</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">在传统的政治经济学中，商品按价值出售和按生产价格出售是完全不同的两件事情：前者适用于利润平均化之前，后者适用于利润平均化之后。然而，本文却证明，如果假定生产价格是价值的转化形式，从而，全部商品的生产价格总量等于这些商品的价值总量，则单位货币所代表的生产价格就一定等于它所代表的价值，且任意一种商品的单位生产价格也一定等于相应的单位价值。这意味着，商品按生产价格出售和按价值出售没有任何的区别，从而，商品按价值出售既适用于利润平均化之前，也适用于利润平均化之后，特别是，它与利润的平均化没有任何的矛盾。</div>
     </div>
-
     <h4 id="part1-2-4"><a href="https://doi.org/10.5281/zenodo.23252606" target="_blank">价值转形：总量相等则个量相等</a></h4>
     <p class="paper-meta">冯金华 | 《中国人民大学学报》 | 2013</p>
     <div class="paper-abstract-wrap">
@@ -227,43 +273,61 @@
         <div class="abs-content">利用再生产的条件以及技术矩阵行列式不等于零的假定可以证明，如果整个社会的生产价格总量等于价值总量且平均利润总量等于剩余价值总量，则每一种商品的生产价格就必然等于相应的价值。然而，进一步的研究表明，这里的再生产条件并不是必需的，技术矩阵行列式不等于
 零也可以根据更加基本和更加合理的假定来推导。本文在完全不依靠再生产条件的情况下，通过引入消耗系数和经济变量均大于零的假定同样证明，在价值转形问题中，若总量相等，则个量亦必然相等。因此，所谓的价值转形，只是转形为与自己在数量上完全相等的生产价格。从这个意义上说，价值转形问题是一个伪问题。</div>
     </div>
-
     <h4 id="part1-2-5"><a href="https://doi.org/10.5281/zenodo.23252382" target="_blank">生产价格会偏离价值吗？</a></h4>
     <p class="paper-meta">冯金华 | 《经济评论》 | 2010</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">到目前为止，所有以偏离系数为特征的价值转形模型都忽视了一个至关重要的问题，即作为这些模型的解的偏离系数有可能总是等于1。实际上，在任何一个合理设置的偏离系数转形模型中，只要假定“两个总量相等”，即整个社会的全部产品的生产价格总量等于价值总量，以及平均利润总量等于剩余价值总量，则所有的偏离系数都将等于且只能等于1，从而，所有产品的生产价格都必然等于相应的价值。因此，价值转形是一种“伪转形”，价值转形问题是一个伪问题。 </div>
     </div>
-
     <h4 id="part1-2-6"><a href="https://doi.org/10.5281/zenodo.23251130" target="_blank">不必要的生产价格</a></h4>
     <p class="paper-meta">冯金华 | 《经济评论》 | 2009</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">价值向生产价格的转形是一个无限的过程。如果这个过程是收敛的，则可以把它的极限定义为由价值转形而成的生产价格。假定从价值到生产价格的转形不会影响生产的技术条件和资本的总剥削程度，以及平均利润总量等于剩余价值总量且生产价格总量等于价值总量，则可以证明，在转形过程完成之后，每一种产品的生产价格都必然等于它们的价值。就此而言，价值转形是一个没有意义的伪问题。</div>
     </div>
-
     <h4 id="part1-2-7"><a href="https://doi.org/10.5281/zenodo.23251391" target="_blank">价值转形：一个伪问题</a></h4>
     <p class="paper-meta">冯金华 | 《经济评论》 | 2008</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">在生产技术不变和生产的技术矩阵行列式不等于零的假定条件下可以证明，如果整个经济的平均利润总量与剩余价值总量相等，且生产价格总量与价值总量相等，则每一部门的单位生产价格与相应的单位价值也相等。换句话说，在所给的相当宽松的技术条件下，所谓的价值转形，只能转形为与自己在数量上相等的生产价格。从这个意义上说，价值转形问题实际上是一个伪问题。</div>
     </div>
-
     <h3 id="part1-3">3. 再生产理论</h3>
-    <h4 id="part1-3-1"><a href="https://doi.org/10.5281/zenodo.23200617" target="_blank">两大部类的积累和增长：政府调控与市场机制</a></h4>
+    <h4 id="part1-3-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">论积累和消费</a></h4>
+    <p class="paper-meta">冯金华 | 《上海经济研究》 | 2022</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">积累和消费是国民经济中最为重要的关系之一。已往的研究尽管在积累和消费关系的意义、决定积累和消费比例的因素、最优积累率或最优消费比率的含义和范围以及社会主义条件下积累和消费的性质等方面取得了颇为丰富的成果，但仍需对积累与消费的比例及其变动规律进行更加具体的定量研究，并以此为基础提出相关的政策建议。本文从马克思关于社会总产品构成的原理及其相关假定出发，首先由简单再生产和扩大再生产的实现条件揭示第一部类积累率和第二部类积累率之间的内在联系；然后，在两大部类积累率内在联系的基础上，探讨整个社会的总积累率和总消费比率的决定和变动规律；最后，由整个社会的总积累率和总消费比率的变动规律，说明如何将政府调控和市场机制有机地结合起来，实现整个社会的最优积累率和最优消费比率。</div>
+    </div>
+    <h4 id="part1-3-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">资本主义市场经济和生产过剩经济危机</a></h4>
+    <p class="paper-meta">冯金华 | 《华南师范大学学报》 | 2022</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">任意给定某一时期两大部类社会总产品的物质构成和价值构成，存在唯一一条均衡积累曲线和唯一一个持续均衡积累率。均衡积累曲线上的每一点都代表一对均衡的两大部类积累率，可以保证社会总产品的供求在这一时期达到均衡；持续均衡积累率则可以保证社会总产品的供求不仅在这一时期而且在下一时期从而以后各个时期都达到均衡。持续均衡积累率把所有可能的两大部类意愿积累率分为收敛和发散两个部分。在资本主义私有制和纯粹市场经济分散决策的条件下，当意愿积累率落在发散部分时，最终将会导致生产资料生产的相对过剩和经济危机；尽管政府干预可以部分地克服纯粹市场经济分散决策的缺陷，但仍然无法完全避免由于劳动人民有支付能力的需求相对缩小和整个社会生产的无政府状态所造成的恶果。</div>
+    </div>
+    <h4 id="part1-3-3"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">市场机制、政府调控和经济增长</a></h4>
+    <p class="paper-meta">冯金华 | 《政治经济学报》 | 2022</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">在马克思的两大部类扩大再生产理论中，如果引入利润的平均化，但保留所有其他的假定，特别是，让第一部类率先积累、第二部类跟随调整，则两大部类的积累率和增长率都将趋同。同样，在包括任意多个部门的更加一般的经济中，如果某个或某些起主导作用的生产资料部门率先积累且保持积累率不变、其他部门跟随调整以保证供求平衡，则所有部门的积累率和增长率也将趋同。这一发现的政策含义是：为了实现整个社会的某个计划增长率目标，政府只需要算出为实现该目标所必须的最优积累率，然后让主导部门的积累率等于该最优积累率即可。其他部门的积累率则可根据供求关系由市场自动调节。</div>
+    </div>
+    <h4 id="part1-3-4"><a href="https://doi.org/10.5281/zenodo.23200617" target="_blank">两大部类的积累和增长：政府调控与市场机制</a></h4>
     <p class="paper-meta">冯金华 | 《学术研究》 | 2017</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">在马克思的扩大再生产模型中，两大部类的增长率从第二期开始趋于相同，但它们的积累率却始终不同。如果在马克思的模型中引入利润平均化的条件，并像马克思那样假定平均利润率、资本有机构成和第一部类的积累率保持不变，第二部类的积累率根据第一部类的积累率进行调整，以保证两大部类之间的供求平衡，则从第二期开始，不仅两大部类的增长率会趋同，而且它们的积累率也将趋同。这意味着，为了实现任意给定的整个经济的增长率目标，政府只需要让第一部类的积累率等于由该增长率目标确定的整个经济的最优积累率并保持不变，而让第二部类的积累率随市场的要求自动调整即可。</div>
     </div>
-
-    <h4 id="part1-3-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">论文题目</a></h4>
-    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <h4 id="part1-3-5"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">马克思的再生产理论和经济增长的性质</a></h4>
+    <p class="paper-meta">冯金华 | 《上海行政学院学报》 | 2011</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
-        <div class="abs-content">简介</div>
+        <div class="abs-content">很多人一直认为，根据马克思的扩大再生产理论，在资本有机构成不断提高的条件下，生产生产资料的第一部类的增长必然快于生产消费资料的第二部类增长。这种看法是不正确的。本文在平均利润率保持不变的假定条件下，首先推导保证社会总产品完全实现的平衡交换积累率和保证两大部类同比例增长的平衡增长积累率，然后确定同时保证平衡交换和平衡增长的平衡积累率，最后根据平衡积累率说明，无论资本有机构成是否提高，任何一个部类的增长都有可能快于、慢于或等于另一个部类的增长。</div>
     </div>
-
+    <h4 id="part1-3-6"><a href="https://doi.org/10.5281/zenodo.23271043" target="_blank">Input Output Tableau of Marx's Reproduction Theory</a></h4>
+    <p class="paper-meta">冯金华 | <em>World revieW of Political economy</em> | 2010</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">Samuelson’s input output interpretation of the two departments of social production, which has been considered right by many economists, is in fact not reflect Marx's reproduction theory properly. A major mistake of Samuelson's interpretation is that he included existing variable capital in the final demand. The paper derives input output analysis from Marx's reproduction theory for not only the simple case of two departments of social production but also the general case of more industries. In all the discussions, we firstly develop the functions of output composition according to Marx's theory of reproduction, then the functions of supply and demand equilibrium according to the requirements of reproduction, and lastly the Tableaus based on both the functions of output composition and the functions of supply and demand.</div>
+    </div>
     <h3 id="part1-4">4. 其他</h3>
     <h4 id="part1-4-1"><a href="https://doi.org/10.5281/zenodo.23200805" target="_blank">迈向新的GDP理论</a></h4>
     <p class="paper-meta">冯金华 | 《政治经济学报》 | 2020</p>
@@ -271,14 +335,12 @@
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">传统的GDP计算方法存在明显的缺陷。其中，名义GDP使用现期价格加总实际产出，考虑了商品相对价格或价格结构的变化，却没有排除通货膨胀或通货紧缩的影响；实际GDP使用基期价格加总实际产出，排除了通货膨胀或紧缩的影响，但又忽略了相对价格的变化。为克服名义和实际GDP的不足，本文提出新GDP平减指数和新GDP的概念。新GDP平减指数等于按基期产量计算的现期价格总量与基期价格总量的比率，新GDP等于名义GDP与新GDP平减指数的比率，即是经过新GDP平减指数修正的名义GDP。与传统的名义和实际GDP不同，新GDP既排除了通货膨胀或紧缩的影响，又充分考虑到了商品相对价格的变化。新GDP具有一些良好的性质：它不随所有现期价格的同比例变化而变化；它随所有现期产量的变化而同比例变化；它随任意一种商品的现期产量的增加而增加；它随相对优势商品的现期价格的上升而上升，随相对劣势商品的现期价格的上升而下降，不随既无相对优势又无相对劣势的商品的现期价格的变化而变化。总之，新GDP不随同比例的价格变动即通货膨胀或紧缩而变动，但随不同比例的价格变动即相对价格的变动而变动，特别是，随那些增长率快于（慢于）整个经济平均增长率的商品的价格上升而上升（下降），不随那些增长率等于整个经济平均增长率的商品的价格变动而变动。</div>
     </div>
-
     <h4 id="part1-4-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">论文题目</a></h4>
     <p class="paper-meta">作者 | 期刊 | 发表年份</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <h3 id="part1-5">5. 著作&nbsp;&nbsp;马克思主义经济学：原理和应用</h3>
     <h4 id="part1-5-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">第1章</a></h4>
     <p class="paper-meta">作者 | 出版社 | 发表年份</p>
@@ -286,14 +348,12 @@
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <h4 id="part1-5-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">第2章</a></h4>
     <p class="paper-meta">作者 | 出版社 | 发表年份</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <!-- 第二部分 编程经济学 -->
     <h2 id="part2">二、编程经济学</h2>
     <h3 id="part2-1">1. 马克思的再生产理论</h3>
@@ -303,14 +363,12 @@
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <h4 id="part2-1-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
     <p class="paper-meta">作者 | 期刊 | 发表年份</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <h3 id="part2-2">2. 具有技术进步的马克思再生产理论</h3>
     <h4 id="part2-2-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
     <p class="paper-meta">作者 | 期刊 | 发表年份</p>
@@ -318,14 +376,12 @@
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <h4 id="part2-2-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
     <p class="paper-meta">作者 | 期刊 | 发表年份</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <h3 id="part2-3">3. 马克思再生产理论的一般化</h3>
     <h4 id="part2-3-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
     <p class="paper-meta">作者 | 期刊 | 发表年份</p>
@@ -333,14 +389,12 @@
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <h4 id="part2-3-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
     <p class="paper-meta">作者 | 期刊 | 发表年份</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <h2 id="part3">三、西方经济学</h2>
     <h3 id="part3-1">1. 分类一</h3>
     <h4 id="part3-1-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
@@ -349,14 +403,12 @@
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <h4 id="part3-1-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
     <p class="paper-meta">作者 | 期刊 | 发表年份</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <h3 id="part3-2">2. 分类二</h3>
     <h4 id="part3-2-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
     <p class="paper-meta">作者 | 期刊 | 发表年份</p>
@@ -364,14 +416,12 @@
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
     <h4 id="part3-2-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
     <p class="paper-meta">作者 | 期刊 | 发表年份</p>
     <div class="paper-abstract-wrap">
         <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
         <div class="abs-content">简介</div>
     </div>
-
 <script>
 function toggleAbs(el){
     const content = el.nextElementSibling;
