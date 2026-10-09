@@ -1,183 +1,404 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="学术论文目录，全文存档于Zenodo并配备永久DOI">
-<title>学术论文目录</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #ffffff;
-  color: #222;
-  line-height: 1.7;
-  padding: 40px 20px;
-}
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-.header {
-  text-align: center;
-  margin-bottom: 42px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e5e7eb;
-}
-.header h1 {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.header p {
-  color: #555;
-  font-size: 15px;
-}
-.section-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 36px 0 16px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid #eee;
-}
-.paper-item {
-  background-color: #f9fafb;
-  padding: 18px 20px;
-  border-radius: 6px;
-  margin-bottom: 14px;
-}
-.paper-title {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-.paper-meta {
-  font-size: 14px;
-  color: #4b5563;
-  margin-bottom: 8px;
-}
-.paper-abstract {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 10px;
-}
-.paper-links a {
-  font-size: 14px;
-  text-decoration: none;
-  padding: 4px 10px;
-  border-radius: 4px;
-  margin-right: 10px;
-}
-.doi-link {
-  background-color: #eef2ff;
-  color: #3730a3;
-}
-.zenodo-link {
-  background-color: #ecfdf5;
-  color: #047857;
-}
-.paper-links a:hover {
-  opacity: 0.85;
-}
-footer {
-  margin-top: 50px;
-  text-align: center;
-  font-size: 13px;
-  color: #888;
-}
-@media (max-width:600px){
-  body {
-    padding:24px 14px;
-  }
-  .header h1 {
-    font-size: 24px;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冯金华的学术思想</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft Yahei", SimSun, sans-serif;
+            line-height: 2;
+            padding: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+        /* 一级标题样式 */
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #111;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+        /* 个人简介链接行（仅链接，无简介文本） */
+        .bio-link {
+            text-align:center;
+            font-family: SimSun,serif;
+            font-size:15px;
+            margin-bottom:12px;
+        }
+        .bio-link a {
+            color:#0066cc;
+            text-decoration:none;
+        }
+        .bio-link a:hover {
+            text-decoration:underline;
+        }
+        /* Zenodo备注文字：宋体 */
+        .zenodo-note{
+            text-align:center;
+            font-family: SimSun,serif;
+            font-size:15px;
+            color:#444;
+            margin-top:0em;
+            margin-bottom:16px;
+        }
+        /* 二级标题 悬挂缩进 */
+        h2 {
+            margin-top: 26px;
+            margin-bottom: 10px;
+            padding-left: 2em;
+            text-indent: -2em;
+            font-size: 22px;
+            color: #222;
+            font-weight: bold;
+        }
+        /* 三级标题 逐级悬挂缩进 */
+        h3 {
+            margin-top: 14px;
+            margin-bottom: 6px;
+            padding-left: 4em;
+            text-indent: -2em;
+            font-size: 19px;
+            color: #333;
+            font-weight: 500;
+        }
+        /* 四级标题 悬挂缩进 + 标题链接样式 */
+        h4 {
+            margin-top: 8px;
+            margin-bottom: 4px;
+            padding-left: 6em;
+            text-indent: -2em;
+            font-size: 16px;
+            color: #444;
+            font-weight: normal;
+        }
+        h4 a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        h4 a:hover {
+            color: #004499;
+            text-decoration: underline;
+        }
+        /* 论文元信息，与h4左对齐，同padding */
+        .paper-meta {
+            padding-left: 6em;
+            text-indent: 0;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+        /* 折叠简介容器 */
+        .paper-abstract-wrap {
+            padding-left: 6em;
+            text-indent: 0;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 4px 0;
+        }
+        /* 展开/折叠按钮 */
+        .abs-btn {
+            color: #0066cc;
+            cursor: pointer;
+            user-select: none;
+        }
+        .abs-btn:hover {
+            color: #004499;
+        }
+        /* 简介内容 默认隐藏 */
+        .abs-content {
+            display: none;
+            color: #444;
+            margin-top: 4px;
+            padding-left: 1em;
+            border-left: 2px solid #cce0f5;
+        }
+        /* 快速跳转目录 居中、无下划线 */
+        .nav-box {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .nav-box a {
+            display: inline-block;
+            margin: 4px 12px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .nav-box a:hover {
+            color: #004499;
+        }
+        /* 全局展开/收起按钮 */
+        .global-btn-group {
+            margin-bottom:20px;
+            padding-left:6em;
+        }
+        .global-btn {
+            padding:4px 10px;
+            margin-right:10px;
+            cursor:pointer;
+            border:1px solid #0066cc;
+            background:#fff;
+            color:#0066cc;
+            border-radius:4px;
+        }
+        .global-btn:hover {
+            background:#0066cc;
+            color:#fff;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <h1>学术论文目录</h1>
-    <p>论文全文存档于 Zenodo，配备永久 DOI 标识符</p>
-  </div>
+    <h1>冯金华的学术思想</h1>
 
-  <h2 class="section-title">政治经济学——价值决定</h2>
-
-  <!-- ========== 论文条目模板，复制整段新增 ========== -->
-  <div class="paper-item">
-    <div class="paper-title">社会总劳动的分配和价值量的决定</div>
-    <div class="paper-meta">冯金华 | 经济评论 | 2013年6月</div>
-    <div class="paper-abstract">论文简介：本文根据马克思主义经济学的基本原理，在假定等价交换以及一国经济的价值总量等于劳动总量的基础上，推导决定单位商品价值量的具体表达式。由此说明，在单位商品价值量的决定中，两种含义的社会必要劳动时间所起的作用都不可或缺，但又有所不同。特别是，在给定一国经济的劳动总量之后，首先可由社会必要劳动时间的第二种含义，决定该劳动总量在不同行业中的分配，即决定每一行业的社会必要劳动量或价值量，其次再由社会必要劳动时间的第一种含义，决定每一行业的社会必要劳动量或价值量在其所生产的每一商品上的分配，即决定单位商品的价值量。</div>
-    <div class="paper-links">
-      <a class="doi-link" href="https://doi.org/10.5281/zenodo.23200268" target="_blank" rel="noopener noreferrer">DOI: 10.5281/zenodo.23200268</a>
-      <a class="zenodo-link" href="https://zenodo.org/records/23200268" target="_blank" rel="noopener noreferrer">Zenodo 全文</a>
+    <!-- 仅个人简介链接，无正文 -->
+    <div class="bio-link">
+        <a href="about.html">个人简介</a>
     </div>
-  </div>
 
-  <!-- =============================================== -->
+    <p class="zenodo-note">成果全文存档于 Zenodo，配备永久 DOI 标识符</p>
 
-  <h2 class="section-title">政治经济学——价值转形</h2>
-
-  <div class="paper-item">
-    <div class="paper-title">为什么价值转形是一个伪问题：回顾与总结</div>
-    <div class="paper-meta">作者姓名 | 政治经济学报 | 2026年1月</div>
-    <div class="paper-abstract">论文简介：本文回顾和总结“价值转形伪问题”研究的提出、争议和发展过程。该研究最初是基于生产价格总量等于价值总量、平均利润总量等于剩余价值总量的假定和再生产的条件，后来则放松了平均利润总量等于剩余价值总量的要求，即只需要满足生产价格总量等于价值总量的假定和再生产条件，再后来则进一步放松了再生产的条件，即只需要假定生产价格总量等于价值总量。最新的“伪问题”研究表明，商品按价值出售与等量资本获得等量利润没有任何矛盾，因而价值转形不仅是不可能的，而且是不必要的。</div>
-    <div class="paper-links">
-      <a class="doi-link" href="https://doi.org/10.5281/zenodo.23180240" target="_blank" rel="noopener noreferrer">DOI: 10.5281/zenodo.23180240</a>
-      <a class="zenodo-link" href="https://zenodo.org/records/23180240" target="_blank" rel="noopener noreferrer">Zenodo 全文</a>
+    <!-- 顶部快捷锚点导航 -->
+    <div class="nav-box">
+        <strong>快速跳转目录</strong><br/>
+        <a href="#part1">一、政治经济学</a>
+        <a href="#part2">二、编程经济学</a>
+        <a href="#part3">三、西方经济学</a>
     </div>
-  </div>
 
-
-  <h2 class="section-title">政治经济学——再生产理论</h2>
-
-  <div class="paper-item">
-    <div class="paper-title">两大部类的积累和增长：政府调控与市场机制</div>
-    <div class="paper-meta">冯金华 | 学术研究 | 2017年6月</div>
-    <div class="paper-abstract">论文简介：在马克思的扩大再生产模型中，两大部类的增长率从第二期开始趋于相同，但它们的积累率却始终不同。如果在马克思的模型中引入利润平均化的条件，并像马克思那样假定平均利润率、资本有机构成和第一部类的积累率保持不变，第二部类的积累率根据第一部类的积累率进行调整，以保证两大部类之间的供求平衡，则从第二期开始，不仅两大部类的增长率会趋同，而且它们的积累率也将趋同。这意味着，为了实现任意给定的整个经济的增长率目标，政府只需要让第一部类的积累率等于由该增长率目标确定的整个经济的最优积累率并保持不变，而让第二部类的积累率随市场的要求自动调整即可。</div>
-    <div class="paper-links">
-      <a class="doi-link" href="https://doi.org/10.5281/zenodo.23200617" target="_blank" rel="noopener noreferrer">DOI: 10.5281/zenodo.23200617</a>
-      <a class="zenodo-link" href="https://zenodo.org/records/23200617" target="_blank" rel="noopener noreferrer">Zenodo 全文</a>
+    <!-- 全局一键展开/收起 -->
+    <div class="global-btn-group">
+        <button class="global-btn" onclick="expandAll()">全部展开简介</button>
+        <button class="global-btn" onclick="collapseAll()">全部收起简介</button>
     </div>
-  </div>
 
-  <h2 class="section-title">政治经济学——其他</h2>
-
-  <!-- ========== 论文条目模板，复制整段新增 ========== -->
-  <div class="paper-item">
-    <div class="paper-title">迈向新的GDP理论</div>
-    <div class="paper-meta">冯金华 | 政治经济学报 | 2020年9月</div>
-    <div class="paper-abstract">论文简介：传统的GDP计算方法存在明显的缺陷。其中，名义GDP使用现期价格加总实际产出，考虑了商品相对价格或价格结构的变化，却没有排除通货膨胀或通货紧缩的影响；实际GDP使用基期价格加总实际产出，排除了通货膨胀或紧缩的影响，但又忽略了相对价格的变化。为克服名义和实际GDP的不足，本文提出新GDP平减指数和新GDP的概念。新GDP平减指数等于按基期产量计算的现期价格总量与基期价格总量的比率，新GDP等于名义GDP与新GDP平减指数的比率，即是经过新GDP平减指数修正的名义GDP。与传统的名义和实际GDP不同，新GDP既排除了通货膨胀或紧缩的影响，又充分考虑到了商品相对价格的变化。新GDP具有一些良好的性质：它不随所有现期价格的同比例变化而变化；它随所有现期产量的变化而同比例变化；它随任意一种商品的现期产量的增加而增加；它随相对优势商品的现期价格的上升而上升，随相对劣势商品的现期价格的上升而下降，不随既无相对优势又无相对劣势的商品的现期价格的变化而变化。总之，新GDP不随同比例的价格变动即通货膨胀或紧缩而变动，但随不同比例的价格变动即相对价格的变动而变动，特别是，随那些增长率快于（慢于）整个经济平均增长率的商品的价格上升而上升（下降），不随那些增长率等于整个经济平均增长率的商品的价格变动而变动。</div>
-    <div class="paper-links">
-      <a class="doi-link" href="https://doi.org/10.5281/zenodo.23200805" target="_blank" rel="noopener noreferrer">DOI: 10.5281/zenodo.23200805</a>
-      <a class="zenodo-link" href="https://zenodo.org/records/23200805" target="_blank" rel="noopener noreferrer">Zenodo 全文</a>
+    <!-- 第一部分 政治经济学 -->
+    <h2 id="part1">一、政治经济学</h2>
+    <h3 id="part1-1">1. 价值决定</h3>
+    <h4 id="part1-1-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">社会总劳动的分配和价值量的决定</a></h4>
+    <p class="paper-meta">冯金华 | 《经济评论》 | 2013</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">本文根据马克思主义经济学的基本原理，在假定等价交换以及一国经济的价值总量等于劳动总量的基础上，推导决定单位商品价值量的具体表达式。由此说明，在单位商品价值量的决定中，两种含义的社会必要劳动时间所起的作用都不可或缺，但又有所不同。特别是，在给定一国经济的劳动总量之后，首先可由社会必要劳动时间的第二种含义，决定该劳动总量在不同行业中的分配，即决定每一行业的社会必要劳动量或价值量，其次再由社会必要劳动时间的第一种含义，决定每一行业的社会必要劳动量或价值量在其所生产的每一商品上的分配，即决定单位商品的价值量。</div>
     </div>
-  </div>
-  <!-- =============================================== -->
 
-  <h2 class="section-title">编程经济学</h2>
-
-  <!-- ========== 论文条目模板，复制整段新增 ========== -->
-  <div class="paper-item">
-    <div class="paper-title">论文题目</div>
-    <div class="paper-meta">作者 | 期刊 | 发表年月</div>
-    <div class="paper-abstract">论文简介：</div>
-    <div class="paper-links">
-      <a class="doi-link" href="https://doi.org/10.5281/zenodo.23180240" target="_blank" rel="noopener noreferrer">DOI: 10.5281/zenodo.23180240</a>
-      <a class="zenodo-link" href="https://zenodo.org/records/23180240" target="_blank" rel="noopener noreferrer">Zenodo 全文</a>
+    <h4 id="part1-1-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">论文题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
     </div>
-  </div>
-  <!-- =============================================== -->
 
-  <footer>
-    站点托管于 GitHub Pages，所有论文全文存储在 Zenodo。
-  </footer>
-</div>
+    <h3 id="part1-2">2. 价值转形</h3>
+    <h4 id="part1-2-1"><a href="https://doi.org/10.5281/zenodo.23180240" target="_blank">为什么价值转形是一个伪问题：回顾与总结</a></h4>
+    <p class="paper-meta">冯金华 | 《政治经济学报》 | 2026</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">本文回顾和总结“价值转形伪问题”研究的提出、争议和发展过程。该研究最初是基于生产价格总量等于价值总量、平均利润总量等于剩余价值总量的假定和再生产的条件，后来则放松了平均利润总量等于剩余价值总量的要求，即只需要满足生产价格总量等于价值总量的假定和再生产条件，再后来则进一步放松了再生产的条件，即只需要假定生产价格总量等于价值总量。最新的“伪问题”研究表明，商品按价值出售与等量资本获得等量利润没有任何矛盾，因而价值转形不仅是不可能的，而且是不必要的。</div>
+    </div>
+
+    <h4 id="part1-2-2"><a href="https://doi.org/10.5281/zenodo.23251858" target="_blank">商品按价值出售与等量资本获得等量利润有矛盾吗？</a></h4>
+    <p class="paper-meta">冯金华 | 《中国经济问题》 | 2020</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">传统政治经济学之所以认为当商品按价值出售时，等量资本无法获得等量的利润，而如果等量资本要获得等量的利润，商品就不能按价值出售，是因为它假定了资本有机构成不同的各个部门具有完全相同且固定不变的剩余价值率。但是，在利润平均化的过程中，随着资本的流动，各个部门的预付资本和产品价值都会变化，从而，剩余价值率和资本有机构成亦会变化。一般而言，剩余价值率和资本有机构成的变化最终会导致不同部门的以价值表示的利润率趋于一致，从而，在商品按价值出售时，这些部门的以价格表示的利润率最终亦会趋于一致，即等量资本最终可以获得等量的利润。因此，“相等的平均利润率”确实“能够并且必须”“以价值规律为基础来形成”。价值规律不仅适用于利润平均化之前，而且也适用于利润平均化之后，不仅适用于简单商品经济，而且也适用于发达的资本主义商品经济。 </div>
+    </div>
+
+    <h4 id="part1-2-3"><a href="https://doi.org/10.5281/zenodo.23252082" target="_blank">商品按生产价格出售和按价值出售有区别吗？</a></h4>
+    <p class="paper-meta">冯金华 | 《政治经济学报》 | 2019</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">在传统的政治经济学中，商品按价值出售和按生产价格出售是完全不同的两件事情：前者适用于利润平均化之前，后者适用于利润平均化之后。然而，本文却证明，如果假定生产价格是价值的转化形式，从而，全部商品的生产价格总量等于这些商品的价值总量，则单位货币所代表的生产价格就一定等于它所代表的价值，且任意一种商品的单位生产价格也一定等于相应的单位价值。这意味着，商品按生产价格出售和按价值出售没有任何的区别，从而，商品按价值出售既适用于利润平均化之前，也适用于利润平均化之后，特别是，它与利润的平均化没有任何的矛盾。</div>
+    </div>
+
+    <h4 id="part1-2-4"><a href="https://doi.org/10.5281/zenodo.23252606" target="_blank">价值转形：总量相等则个量相等</a></h4>
+    <p class="paper-meta">冯金华 | 《中国人民大学学报》 | 2013</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">利用再生产的条件以及技术矩阵行列式不等于零的假定可以证明，如果整个社会的生产价格总量等于价值总量且平均利润总量等于剩余价值总量，则每一种商品的生产价格就必然等于相应的价值。然而，进一步的研究表明，这里的再生产条件并不是必需的，技术矩阵行列式不等于
+零也可以根据更加基本和更加合理的假定来推导。本文在完全不依靠再生产条件的情况下，通过引入消耗系数和经济变量均大于零的假定同样证明，在价值转形问题中，若总量相等，则个量亦必然相等。因此，所谓的价值转形，只是转形为与自己在数量上完全相等的生产价格。从这个意义上说，价值转形问题是一个伪问题。</div>
+    </div>
+
+    <h4 id="part1-2-5"><a href="https://doi.org/10.5281/zenodo.23252382" target="_blank">生产价格会偏离价值吗？</a></h4>
+    <p class="paper-meta">冯金华 | 《经济评论》 | 2010</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">到目前为止，所有以偏离系数为特征的价值转形模型都忽视了一个至关重要的问题，即作为这些模型的解的偏离系数有可能总是等于1。实际上，在任何一个合理设置的偏离系数转形模型中，只要假定“两个总量相等”，即整个社会的全部产品的生产价格总量等于价值总量，以及平均利润总量等于剩余价值总量，则所有的偏离系数都将等于且只能等于1，从而，所有产品的生产价格都必然等于相应的价值。因此，价值转形是一种“伪转形”，价值转形问题是一个伪问题。 </div>
+    </div>
+
+    <h4 id="part1-2-6"><a href="https://doi.org/10.5281/zenodo.23251130" target="_blank">不必要的生产价格</a></h4>
+    <p class="paper-meta">冯金华 | 《经济评论》 | 2009</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">价值向生产价格的转形是一个无限的过程。如果这个过程是收敛的，则可以把它的极限定义为由价值转形而成的生产价格。假定从价值到生产价格的转形不会影响生产的技术条件和资本的总剥削程度，以及平均利润总量等于剩余价值总量且生产价格总量等于价值总量，则可以证明，在转形过程完成之后，每一种产品的生产价格都必然等于它们的价值。就此而言，价值转形是一个没有意义的伪问题。</div>
+    </div>
+
+    <h4 id="part1-2-7"><a href="https://doi.org/10.5281/zenodo.23251391" target="_blank">价值转形：一个伪问题</a></h4>
+    <p class="paper-meta">冯金华 | 《经济评论》 | 2008</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">在生产技术不变和生产的技术矩阵行列式不等于零的假定条件下可以证明，如果整个经济的平均利润总量与剩余价值总量相等，且生产价格总量与价值总量相等，则每一部门的单位生产价格与相应的单位价值也相等。换句话说，在所给的相当宽松的技术条件下，所谓的价值转形，只能转形为与自己在数量上相等的生产价格。从这个意义上说，价值转形问题实际上是一个伪问题。</div>
+    </div>
+
+    <h3 id="part1-3">3. 再生产理论</h3>
+    <h4 id="part1-3-1"><a href="https://doi.org/10.5281/zenodo.23200617" target="_blank">两大部类的积累和增长：政府调控与市场机制</a></h4>
+    <p class="paper-meta">冯金华 | 《学术研究》 | 2017</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">在马克思的扩大再生产模型中，两大部类的增长率从第二期开始趋于相同，但它们的积累率却始终不同。如果在马克思的模型中引入利润平均化的条件，并像马克思那样假定平均利润率、资本有机构成和第一部类的积累率保持不变，第二部类的积累率根据第一部类的积累率进行调整，以保证两大部类之间的供求平衡，则从第二期开始，不仅两大部类的增长率会趋同，而且它们的积累率也将趋同。这意味着，为了实现任意给定的整个经济的增长率目标，政府只需要让第一部类的积累率等于由该增长率目标确定的整个经济的最优积累率并保持不变，而让第二部类的积累率随市场的要求自动调整即可。</div>
+    </div>
+
+    <h4 id="part1-3-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">论文题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <h3 id="part1-4">4. 其他</h3>
+    <h4 id="part1-4-1"><a href="https://doi.org/10.5281/zenodo.23200805" target="_blank">迈向新的GDP理论</a></h4>
+    <p class="paper-meta">冯金华 | 《政治经济学报》 | 2020</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">传统的GDP计算方法存在明显的缺陷。其中，名义GDP使用现期价格加总实际产出，考虑了商品相对价格或价格结构的变化，却没有排除通货膨胀或通货紧缩的影响；实际GDP使用基期价格加总实际产出，排除了通货膨胀或紧缩的影响，但又忽略了相对价格的变化。为克服名义和实际GDP的不足，本文提出新GDP平减指数和新GDP的概念。新GDP平减指数等于按基期产量计算的现期价格总量与基期价格总量的比率，新GDP等于名义GDP与新GDP平减指数的比率，即是经过新GDP平减指数修正的名义GDP。与传统的名义和实际GDP不同，新GDP既排除了通货膨胀或紧缩的影响，又充分考虑到了商品相对价格的变化。新GDP具有一些良好的性质：它不随所有现期价格的同比例变化而变化；它随所有现期产量的变化而同比例变化；它随任意一种商品的现期产量的增加而增加；它随相对优势商品的现期价格的上升而上升，随相对劣势商品的现期价格的上升而下降，不随既无相对优势又无相对劣势的商品的现期价格的变化而变化。总之，新GDP不随同比例的价格变动即通货膨胀或紧缩而变动，但随不同比例的价格变动即相对价格的变动而变动，特别是，随那些增长率快于（慢于）整个经济平均增长率的商品的价格上升而上升（下降），不随那些增长率等于整个经济平均增长率的商品的价格变动而变动。</div>
+    </div>
+
+    <h4 id="part1-4-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">论文题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <h3 id="part1-5">5. 著作&nbsp;&nbsp;马克思主义经济学：原理和应用</h3>
+    <h4 id="part1-5-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">第1章</a></h4>
+    <p class="paper-meta">作者 | 出版社 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <h4 id="part1-5-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">第2章</a></h4>
+    <p class="paper-meta">作者 | 出版社 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <!-- 第二部分 编程经济学 -->
+    <h2 id="part2">二、编程经济学</h2>
+    <h3 id="part2-1">1. 马克思的再生产理论</h3>
+    <h4 id="part2-1-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <h4 id="part2-1-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <h3 id="part2-2">2. 具有技术进步的马克思再生产理论</h3>
+    <h4 id="part2-2-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <h4 id="part2-2-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <h3 id="part2-3">3. 马克思再生产理论的一般化</h3>
+    <h4 id="part2-3-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <h4 id="part2-3-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <h2 id="part3">三、西方经济学</h2>
+    <h3 id="part3-1">1. 分类一</h3>
+    <h4 id="part3-1-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <h4 id="part3-1-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <h3 id="part3-2">2. 分类二</h3>
+    <h4 id="part3-2-1"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+    <h4 id="part3-2-2"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank">题目</a></h4>
+    <p class="paper-meta">作者 | 期刊 | 发表年份</p>
+    <div class="paper-abstract-wrap">
+        <span class="abs-btn" onclick="toggleAbs(this)">展开简介</span>
+        <div class="abs-content">简介</div>
+    </div>
+
+<script>
+function toggleAbs(el){
+    const content = el.nextElementSibling;
+    if(content.style.display === "block"){
+        content.style.display = "none";
+        el.innerText = "展开简介";
+    }else{
+        content.style.display = "block";
+        el.innerText = "收起简介";
+    }
+}
+function expandAll(){
+    document.querySelectorAll(".abs-content").forEach(x=>{
+        x.style.display="block";
+    })
+    document.querySelectorAll(".abs-btn").forEach(x=>{
+        x.innerText="收起简介";
+    })
+}
+function collapseAll(){
+    document.querySelectorAll(".abs-content").forEach(x=>{
+        x.style.display="none";
+    })
+    document.querySelectorAll(".abs-btn").forEach(x=>{
+        x.innerText="展开简介";
+    })
+}
+</script>
 </body>
 </html>
