@@ -20,10 +20,29 @@
             line-height:2;
             background-color:#fff;
         }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 2rem;
+        }
+        .lang-btn {
+            padding: 0.4rem 0.8rem;
+            border: 1px solid #2385bb;
+            background: #fff;
+            color: #2385bb;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 6px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .lang-btn.active {
+            background: #2385bb;
+            color: #fff;
+        }
         h1 {
             text-align:center;
             margin-bottom:24px;
-        }
+
         .back-link {
             display:block;
             text-align:center;
@@ -35,6 +54,7 @@
         }
         .back-link a:hover {
             text-decoration:underline;
+        }
         }
         .section-title{
             font-weight:bold;
@@ -68,6 +88,10 @@
     </style>
 </head>
 <body>
+    <div class="lang-switch">
+        <a class="lang-btn active" href="./about.html">中文</a>
+        <a class="lang-btn" href="./about-en.html">English</a>
+    </div>
     <div class="back-link">
         <a href="index.html">← 返回成果目录主页</a>
     </div>
@@ -135,6 +159,7 @@
     <div class="contact-info">
         <div class="section-title">联系方式</div>
         <p>邮箱：fengjinhua1957@126.com</p>
+        <p>Cloudflare: <a href="https://my1957.pages.dev/" target="_blank">https://my1957.pages.dev/</a></p>
         <p>GitHub：<a href="https://feng-jinhua.github.io/Academic-Corner/" target="_blank">https://feng-jinhua.github.io/Academic-Corner/</a></p>
         <p>ORCID：<a href="https://orcid.org/0009-0004-0328-6136" target="_blank">https://orcid.org/0009-0004-0328-6136</a></p>
     </div>
