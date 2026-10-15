@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Feng Jinhua Academic Homepage</title>
+    <link rel="canonical" href="https://my1957.pages.dev/index-en.html" />
+    <link rel="alternate" hreflang="zh-CN" href="https://my1957.pages.dev/index.html" />
+    <link rel="alternate" hreflang="en" href="https://my1957.pages.dev/index-en.html" />
+    <link rel="alternate" hreflang="x-default" href="https://my1957.pages.dev/index.html" />
+    <meta name="description" content="Academic homepage of Feng Jinhua, research on Marxist political economy, Labour Theory of Value, Surplus Value Theory, Value Transformation, reproduction theory, new GDP theory, mathematical economics. Papers with Zenodo DOI and full-text downloads.">
+    <meta name="keywords" content="Feng Jinhua, Marxist political economy, Labour Theory of Value, Surplus Value Theory, Value Transformation, reproduction theory, mathematical economics">
+    <meta property="og:title" content="Feng Jinhua Academic Homepage">
+    <meta property="og:description" content="List of academic papers and books by Feng Jinhua. 冯金华论文与著作目录">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta name="author" content="Feng Jinhua">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Latin Modern Roman", Georgia, "Times New Roman", "Microsoft YaHei", SimSun, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 2;
+            padding: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 2rem;
+        }
+        .lang-btn {
+            padding: 0.4rem 0.8rem;
+            border: 1px solid #2385bb;
+            background: #fff;
+            color: #2385bb;
+            border-radius: 4px;
+            margin-left: 6px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .lang-btn.active {
+            background: #2385bb;
+            color: #fff;
+        }
+        h2, h3, h4 {
+            scroll-margin-top: 30px;
+        }
+        /* 一级标题样式 */
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #111;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+        /* 个人简介链接行（仅链接，无简介文本） */
+        .bio-link {
+            text-align:center;
+            font-family: SimSun,serif;
+            font-size:15px;
+            margin-bottom:12px;
+        }
+        .bio-link a {
+            color:#0066cc;
+            text-decoration:none;
+        }
+        .bio-link a:hover {
+            text-decoration:underline;
+        }
+        /* Zenodo备注文字：宋体 */
+        .zenodo-note{
+            text-align:center;
+            font-family: SimSun,serif;
+            font-size:15px;
+            color:#444;
+            margin-top:0em;
+            margin-bottom:16px;
+        }
+        /* 二级标题 悬挂缩进 */
+        h2 {
+            margin-top: 26px;
+            margin-bottom: 10px;
+            padding-left: 2em;
+            text-indent: -2em;
+            font-size: 22px;
+            color: #222;
+            font-weight: bold;
+        }
+        /* 三级标题 逐级悬挂缩进 */
+        h3 {
+            margin-top: 14px;
+            margin-bottom: 6px;
+            padding-left: 4em;
+            text-indent: -2em;
+            font-size: 19px;
+            color: #333;
+            font-weight: 500;
+        }
+        /* 四级标题 悬挂缩进 + 标题链接样式 */
+        h4 {
+            margin-top: 8px;
+            margin-bottom: 4px;
+            padding-left: 6em;
+            text-indent: -2em;
+            font-size: 16px;
+            color: #444;
+            font-weight: normal;
+        }
+        h4 a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        h4 a:hover {
+            color: #004499;
+            text-decoration: underline;
+        }
+        /* 论文元信息，与h4左对齐，同padding */
+        .paper-meta {
+            padding-left: 6em;
+            text-indent: 0;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+        /* 折叠简介容器 */
+        .paper-abstract-wrap {
+            padding-left: 6em;
+            text-indent: 0;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 4px 0;
+        }
+        /* 展开/折叠按钮 */
+        .abs-btn {
+            color: #0066cc;
+            cursor: pointer;
+            user-select: none;
+        }
+        .abs-btn:hover {
+            color: #004499;
+        }
+        /* 简介内容 默认隐藏 */
+        .abs-content {
+            display: none;
+            color: #444;
+            margin-top: 4px;
+            padding-left: 1em;
+            border-left: 2px solid #cce0f5;
+        }
+        /* ========== 快速跳转目录【修改：Quick Navigation 二级竖排，每个二级内三级竖排、悬挂缩进】 ========== */
+        .nav-box {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .nav-box > strong {
+            display:block;
+            text-align:left;
+            margin-bottom:12px;
+        }
+        /* 二级标题：竖排（纵向排列） */
+        .nav-main {
+            display:flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        /* 二级导航项：悬挂缩进 */
+        .nav-main-item {
+            padding-left: 2em;
+            text-indent: -2em;
+        }
+        .nav-main-item > a {
+            font-size:18px; /* 二级导航字体 */
+            color: #0066cc;
+            text-decoration: none;
+            font-weight:bold;
+        }
+        .nav-main-item > a:hover {
+            color: #004499;
+        }
+        /* 三级标题：竖排、悬挂缩进 */
+        .nav-sub {
+            display:flex;
+            flex-direction:column;
+            gap:6px;
+            margin-top:6px;
+        }
+        .nav-sub a {
+            font-size:15px; /* 三级导航字体，比二级小 */
+            color:#225588;
+            text-decoration:none;
+            padding-left: 2em;
+            text-indent: -2em;
+        }
+        .nav-sub a:hover {
+            color:#004499;
+            text-decoration:underline;
+        }
+        /* 全局展开/收起按钮 */
+        .global-btn-group {
+            margin-bottom:20px;
+            padding-left:6em;
+        }
+        .global-btn {
+            padding:4px 10px;
+            margin-right:10px;
+            cursor:pointer;
+            border:1px solid #0066cc;
+            background:#fff;
+            color:#0066cc;
+            border-radius:4px;
+        }
+        .global-btn:hover {
+            background:#0066cc;
+            color:#fff;
+        }
+        @media(max-width:768px){    
+            h2,h3,h4{        
+                padding-left:0 !important;        
+                text-indent:0 !important;    
+            }    
+            .paper-meta,.paper-abstract-wrap{        
+                padding-left:0 !important;    
+            }
+            /* 移动端导航取消悬挂缩进 */
+            .nav-main-item {
+                padding-left:0 !important;
+                text-indent:0 !important;
+            }
+            .nav-sub a {
+                padding-left:0 !important;
+                text-indent:0 !important;
+            }
+        }
+        footer {
+            margin-top: 3rem;
+            padding: 1rem;
+            background: #f5f5f5;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch">
+        <a class="lang-btn" href="./index.html" hreflang="zh-CN">中文</a>
+        <a class="lang-btn active" href="./index-en.html" hreflang="en">English</a>
+    </div>
+    <h1>Feng Jinhua Academic Works</h1>
+    <!-- 仅个人简介链接，无正文 -->
+    <div class="bio-link">
+        <a href="about-en.html"><span style="font-size:1.5em;"><strong>Biography</strong></span></a>
+    </div>
+    <div style="text-align:center; line-height:2em; margin:1em 0; color:#555;">
+        Publication links redirect to Zenodo.<br>
+        Zenodo archive titles are in English.<br>
+        Attached files are Chinese-language PDFs, available for preview and download.
+    </div>
+    <!-- ========== 顶部快捷锚点导航【重构HTML结构：二级竖排，每个二级内三级竖排+悬挂缩进】 ========== -->
+    <div class="nav-box">
+        <strong>Quick Navigation</strong>
+        <!-- 二级标题：纵向排列 -->
+        <div class="nav-main">
+            <div class="nav-main-item">
+                <a href="#part1">I. Political Economy</a>
+                <!-- 属于part1的三级标题，竖排 + 悬挂缩进 -->
+                <div class="nav-sub">
+                    <a href="#part1-1">1. Labour Theory of Value</a>
+                    <a href="#part1-2">2. Surplus Value Theory</a>
+                    <a href="#part1-3">3. Value Transformation</a>
+                    <a href="#part1-4">4. Reproduction Theory</a>
+                    <a href="#part1-5">5. Economic Methodology</a>
+                    <a href="#part1-6">6. Monographs</a>
+                    <a href="#part1-7">7. Miscellaneous</a>
+                </div>
+            </div>
+            <div class="nav-main-item">
+                <a href="#part2">II. Programming Economics</a>
+                <!-- 属于part2的三级标题，竖排 + 悬挂缩进 -->
+                <div class="nav-sub">
+                    <a href="#part2-1">1. Marx’s Reproduction Theory</a>
+                    <a href="#part2-2">2. Marxian Reproduction with Technical Progress</a>
+                    <a href="#part2-3">3. Generalization of Marx’s Reproduction Theory</a>
+                </div>
+            </div>
+            <div class="nav-main-item">
+                <a href="#part3">III. Western Economics</a>
+                <!-- 属于part3的三级标题，竖排 + 悬挂缩进 -->
+                <div class="nav-sub">
+                    <a href="#part3-1">1. Category One</a>
+                    <a href="#part3-2">2. Category Two</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 全局一键展开/收起 -->
+    <div class="global-btn-group">
+        <button type="button" class="global-btn" onclick="expandAll()">Expand All Abstracts</button>
+        <button type="button" class="global-btn" onclick="collapseAll()">Collapse All Abstracts</button>
+    </div>
+    <!-- Part 1 Political Economy -->
+    <h2 id="part1">I. Political Economy</h2>
+    <h3 id="part1-1">1. Labour Theory of Value</h3>
+    <h4 id="part1-1-1"><a href="https://doi.org/10.5281/zenodo.23274294" target="_blank" rel="noopener noreferrer">Labour Theory of Value: Intertemporal Analysis and Economic Growth</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Fujian Tribune</em> | 2021</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button> 
+        <div class="abs-content">The traditional labour theory of value lacks explicit intertemporal analysis and therefore cannot explain value determination and growth across different periods. Just as extending the law of value from a single country to multiple countries enables the establishment of an international value theory jointly determined by many nations, extending the law of value from a single period to multiple periods allows us to build an intertemporal value theory jointly determined across time periods. According to this theory, the growth rate of the total intertemporal value of all commodities from any one period to another equals the growth rate of their total price adjusted by the interest rate. Thus, nominal and real GDP growth rates are merely special cases of the growth rate of total intertemporal value of final products. This implies that national income accounting theory can be fully grounded on the labour theory of value incorporating intertemporal analysis.</div>
+    </div>
+    <h4 id="part1-1-2"><a href="https://doi.org/10.5281/zenodo.23274417" target="_blank" rel="noopener noreferrer">Law of Value, Supply-Demand Relations and Market Mechanism</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Shanghai Journal of Economics</em> | 2020</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Within existing economics (including Western economics and political economy), neither the downward-sloping market demand curve nor the upward-sloping market supply curve is derived from the law of value. Consequently, market theory built upon supply and demand lacks a solid value foundation. This paper proves: under the ceteris paribus assumption, the market demand curve for any commodity can be derived from equivalent exchange and the labour theory of value; the market supply curve for any commodity can be derived from equivalent exchange, the labour theory of value and production equilibrium conditions. It thereby demonstrates that supply-demand relations and competitive market mechanisms are founded on the law of value, and ultimately shows that both partial equilibrium prices and general equilibrium prices are forms of expression of corresponding values.</div>
+    </div>
+    <h4 id="part1-1-3"><a href="https://doi.org/10.5281/zenodo.23274538" target="_blank" rel="noopener noreferrer">Interest Rate Determination Theory and Monetary Policy Based on the Labour Theory of Value</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Shanghai Journal of Economics</em> | 2019</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">By extending the law of value from a single period to different time periods, we lay a solid value foundation for interest rate determination theory and monetary policy. First, under the extended law of value, the interest rate between any two periods rises with an increase in the monetary value of the former period and falls with an increase in the monetary value of the latter period. Second, as the monetary value in any period equals total labour quantity divided by total price of that period, the interest rate rises with increases in the former period’s total labour and the latter period’s total price, and falls with increases in the former period’s total price and the latter period’s total labour. Finally, as total price in any period equals the product of money stock and velocity of money circulation, the interest rate falls when this product rises in the earlier period and rises when this product rises in the later period. Under the assumption that the elasticity of money velocity with respect to money quantity is greater than unity, government changes in money supply cause the interest rate to move in the opposite direction.</div>
+    </div>
+    <h4 id="part1-1-4"><a href="https://doi.org/10.5281/zenodo.23274761" target="_blank" rel="noopener noreferrer">Value, Price and Output: A Comment on the So-called "Century Puzzle"</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>The Journal of World Economy</em> | 2019</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Based on the two basic components of the law of value — "equivalent exchange" and "Labour determines value" — this paper first identifies the conditions under which the unit value of any commodity rises, falls or remains unchanged. It then introduces the ceteris paribus assumption (when examining one commodity market, holding constant prices, outputs and values of all other commodities and the aggregate labour of the whole economy) to explain the relationship and dynamic evolution between unit commodity value and price. In particular, it shows that with rising labour productivity and falling unit value of a commodity, its corresponding price may either fall or rise. This resolves the so-called "Century Puzzle". Meanwhile, it demonstrates that in explaining prices, the labour theory of value is neither "redundant", nor "one-sided", nor "contradictory".</div>
+    </div>
+    <h4 id="part1-1-5"><a href="https://doi.org/10.5281/zenodo.23275045" target="_blank" rel="noopener noreferrer">Labour, Value and Growth: Also on the "Total Value Puzzle"</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>The Journal of World Economy</em> | 2018</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">It can be proven from equivalent exchange and the labour theory of value that, in any period, nominal GDP at current prices equals the ratio of nominal GDP measured at current values to the value represented per unit of money. Similarly, real GDP at constant prices of any base year equals the ratio of real GDP measured at values of the same base year to the value represented per unit of money in the base year. Notably, the growth rate of real GDP calculated using prices of any base year equals the growth rate of real GDP calculated using values of the same base year. These findings provide a solid value foundation for traditional national income accounting and growth theory, and show that the so-called "Total Value Puzzle" does not actually exist.</div>
+    </div>
+    <h4 id="part1-1-6"><a href="https://doi.org/10.5281/zenodo.23275232" target="_blank" rel="noopener noreferrer">Socially Necessary Materialized Labour and the Determination of Transferred Value</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>The Chinese Journal of Political Economy</em> | 2017</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">The principle that socially necessary labour time determines commodity value applies not only to living labour and the creation of new value, but also to materialized labour and the formation of transferred value. However, existing literature mostly focuses on living labour and new-value creation, rarely addressing materialized labour and the transfer of old value, especially the quantitative relationship between the original old value embodied in material inputs and the transferred value reproduced in outputs. Starting from the first definition of socially necessary labour time, this paper begins with the simplest case with only labour inputs, then analyzes self-inputs identical to outputs, and finally studies other inputs different from outputs, arriving at a more general theory of value determination.</div>
+    </div>
+    <h4 id="part1-1-7"><a href="https://doi.org/10.5281/zenodo.23275460" target="_blank" rel="noopener noreferrer">National Value, International Value and International Trade</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>The Journal of World Economy</em> | 2016</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Based on the labour theory of value, equivalent exchange and the law of one price: before opening up, the unit national value of any commodity produced in a country equals the ratio of the commodity’s price to the total price of all commodities in that country multiplied by total labour expended to produce those commodities. After opening up, the unit international value of any commodity equals the ratio of the commodity’s price denominated in any national currency to the global total price of all commodities multiplied by world total labour. It further follows that before openness, a country has comparative advantage in producing commodities where its ratio of unit national value is relatively small. After openness, the international exchange ratio between any two commodities of any two countries equals the ratio of their unit international values, and the exchange rate between any two countries equals the ratio of unit international value represented by their respective currencies.</div>
+    </div>
+    <h4 id="part1-1-8"><a href="https://doi.org/10.5281/zenodo.23275737" target="_blank" rel="noopener noreferrer">Labour Theory of Value and Optimal Allocation of Resources</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Fujian Tribune</em> | 2016</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">First, under equivalent exchange and the labour theory of value, the relationship between price and value per unit commodity is derived. Second, with assumptions of perfect competition, profit maximization, diminishing marginal product and identical labour inputs across all producers, we derive the price condition for economy-wide optimal resource allocation: marginal revenue of labour expressed in prices must be equal across all industries. Third, substituting the price-value relation for unit commodities into the price condition yields the value condition for optimal resource allocation: marginal revenue of labour expressed in values is equal across industries, or the ratios of marginal revenue expressed in prices and values are equal for all products. This shows not only that value is the foundation of price, but also that the value condition for optimal resource allocation underlies its corresponding price condition; in other words, the price condition for optimal resource allocation is a form of expression of the value condition.</div>
+    </div>
+    <h4 id="part1-1-9"><a href="https://doi.org/10.5281/zenodo.23275927" target="_blank" rel="noopener noreferrer">Labour, Value and Equilibrium Price</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Study & Exploration</em> | 2016</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Mainstream modern Western economics conflates commodity value with equilibrium price and seeks to explain equilibrium price and value merely through superficial market supply-demand and competition phenomena. Hence it cannot uncover the essential value behind equilibrium price, nor genuinely understand equilibrium price. In fact, the quantitative relation between equilibrium price and value — the so-called value-price equation — can be readily derived from the two basic postulates of equivalent exchange and labour theory of value. Building on this equation, we further show that although the determination, realization and variation of equilibrium price appear to be affected by supply-demand and competition, they are ultimately determined by the value of commodities and money, i.e., socially necessary labour time.</div>
+    </div>
+    <h4 id="part1-1-10"><a href="https://doi.org/10.5281/zenodo.23276156" target="_blank" rel="noopener noreferrer">Labour, Value and Efficiency</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Contemporary Economic Research</em> | 2016</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">The concept of value serves not only as an important foundation for studying income distribution but also as a powerful tool for measuring production efficiency. Yet within traditional political economy, this second function of value theory is often neglected. On the basis of Marx’s labour theory of value and the basic assumption of equivalent exchange, this paper first elaborates and derives the concept and formula for unit commodity value. Then, from unit commodity value, it develops the concept and formula for unit labour value. Finally, using unit labour value, it assesses the production efficiency of any sector or firm relative to society and compares efficiency across different sectors or firms. This proves that, just like income distribution theory, production efficiency theory can and should be built upon the concept of value.</div>
+    </div>
+    <h4 id="part1-1-11"><a href="https://doi.org/10.5281/zenodo.23276347" target="_blank" rel="noopener noreferrer">The Determination of Value: Forms of Manifestation and Objective Basis</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>The Chinese Journal of Political Economy</em> | 2015</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Assuming commodities exchange according to equal magnitudes of value and total value of an economy equals total labour, this paper integrates the two definitions of socially necessary labour time and derives the formula determining unit commodity value. By constructing and solving the price equations of the whole economic system, the second definition of socially necessary labour time is reduced to material input coefficients, living labour input coefficients and the quantity of necessary subsistence goods for labour reproduction. This shows that the relation between the second definition of socially necessary labour time and market supply-demand is only superficial; beneath this surface relation lies the solid "production relation", or the "technical relation" within production processes.</div>
+    </div>
+    <h4 id="part1-1-12"><a href="https://doi.org/10.5281/zenodo.23276665" target="_blank" rel="noopener noreferrer">Formation and Realization of Value: A New Interpretation</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Study & Exploration</em> | 2015</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Contrary to conventional political economy, what underlies equivalent exchange and directly explains exchange between different products is not the first definition of socially necessary labour time or formed value magnitude, but socially necessary labour time incorporating both definitions or realized value magnitude. There exists a close relationship between the two definitions of socially necessary labour time, and between formed value and realized value. In particular, the two definitions of socially necessary labour time or realized value per unit product are a "linear combination" or "weighted average" of the first definition of socially necessary labour time or formed value of all unit products. If the ratio of price to formed value per unit product in a sector exceeds or falls below the economy-wide ratio of total price to total formed value, realized value of that sector will be greater or smaller than its formed value; in other words, the sector gains or loses part of transferred value.</div>
+    </div>
+    <h4 id="part1-1-13"><a href="https://doi.org/10.5281/zenodo.23200268" target="_blank" rel="noopener noreferrer">Allocation of Total Social Labour and Determination of Value Magnitude</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Economic Review</em> | 2013</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Based on fundamental principles of Marxist economics, under assumptions of equivalent exchange and equality between total value and total labour of an economy, this paper derives the explicit expression determining unit commodity value. It demonstrates that both definitions of socially necessary labour time play indispensable yet distinct roles in unit value determination. Specifically, given total social labour of an economy, the second definition of socially necessary labour time first governs the allocation of total labour across sectors, i.e., determining the socially necessary labour or value magnitude for each sector. Then the first definition of socially necessary labour time determines how each sector’s socially necessary labour or value is distributed over its individual commodities, i.e., unit commodity value.</div>
+    </div>
+    <h4 id="part1-1-14"><a href="https://doi.org/10.5281/zenodo.23289199" target="_blank" rel="noopener noreferrer">Single Production, Joint Production and Value Determination</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Study & Exploration</em> | 2013</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">With assumptions of equivalent exchange and labour theory of value, we derive expressions for commodity value first under single production and then joint production. This proves Marx’s fundamental principle that socially necessary labour time determines commodity value applies to both single and joint production. In particular, so long as joint products are scarce useful goods, their embodied socially necessary labour or unit value will be positive. Only when some joint products are free goods or bads can their unit value be zero or negative. In this sense, joint production generalizes single production; single production is merely a "special case" of joint production, when among joint outputs of each industry only one commodity is useful and the rest are useless.</div>
+    </div>
+    <h4 id="part1-1-15"><a href="https://doi.org/10.5281/zenodo.23289313" target="_blank" rel="noopener noreferrer">Value Determination in Joint Production</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Social Science Front</em> | 2012</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Joint production is a widespread economic phenomenon. To date, solving value determination under joint production remains one of the most serious challenges confronting Marx’s labour theory of value and Marxist economics as a whole. Extending Marx’s labour theory of value, especially the principle that socially necessary labour time determines commodity value, from traditional single production to joint production allows us to explain how value is determined in joint production. It further demonstrates that labour theory of value applies not only to conventional non-joint production but also joint production. In fact, value determination in joint production is an extension of value determination under non-joint production, showing that labour theory of value is a "universal" scientific theory.</div>
+    </div>
+    <h4 id="part1-1-16"><a href="https://doi.org/10.5281/zenodo.23289496" target="_blank" rel="noopener noreferrer">The Value Foundation of General Equilibrium Theory</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Economic Research Journal</em> | 2012</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">General equilibrium theory in mainstream modern Western economics lacks an adequate value foundation. Recent attempts to construct a Marxist general equilibrium theory have not succeeded. However, Marx’s labour theory of value proves that under the assumptions that total price equals total value of social aggregate products and total average profit equals total surplus value, there exists exactly one general equilibrium price vector identical to the corresponding value vector. This means general equilibrium theory can be fully grounded on labour theory of value. This paper first establishes a value system incorporating technical relations and corresponding price system following Marx’s theory of composition of social aggregate product across two departments. It then proves infinitely many general equilibrium price vectors exist within the price system. Finally it identifies a "standard" price vector from those infinite equilibria and proves this standard price vector necessarily equals the corresponding value vector.</div>
+    </div>
+    <h4 id="part1-1-17"><a href="https://doi.org/10.5281/zenodo.23289564" target="_blank" rel="noopener noreferrer">General Equilibrium of Labour and Product Markets Based on the Labour Theory of Value</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Study & Exploration</em> | 2010</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Following Marx’s labour theory of value and perfect competition assumptions, we build a dual-market general equilibrium model covering both labour and product markets under surplus value maximization. The analysis proceeds as follows: first derive separate labour-market and product-market models from labour theory of value to explain determination of equilibrium labour value and equilibrium product value. Then combine both markets to derive the general equilibrium model and characterize general equilibrium labour value and general equilibrium product value. Finally, discuss shifts and realization processes of general equilibrium based on the general equilibrium model.</div>
+    </div>
+    <h4 id="part1-1-18"><a href="https://doi.org/10.5281/zenodo.23289644" target="_blank" rel="noopener noreferrer">Labour Theory of Value and Perfectly Competitive Labour Market Model</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>The Journal of Shanghai Administration Institute</em> | 2008</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Based on labour theory of value and perfect competition assumptions, on one side we derive labour demand function combining firms’ optimizing behavior; on the other side we derive labour supply function combining workers’ optimizing behavior. Supply and demand are then integrated to build a value-based labour market model. Within this labour market model we examine determination and variation laws of equilibrium labour value (and equilibrium labour quantity).</div>
+    </div>
+    <h4 id="part1-1-19"><a href="https://doi.org/10.5281/zenodo.23289692" target="_blank" rel="noopener noreferrer">Perfectly Competitive Product Market Model Based on the Labour Theory of Value</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Social Sciences in Guangdong</em> | 2007</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Based on labour theory of value and perfect competition assumptions, we derive product supply functions using firms’ production functions and product demand functions from individual utility functions. Integrating supply and demand, we build a value-based product market model. Within the model we analyze determination and variation of equilibrium value (and equilibrium quantity), together with the relationship between equilibrium value and price.</div>
+    </div>
+    <h4 id="part1-1-20"><a href="https://doi.org/10.5281/zenodo.23290224" target="_blank" rel="noopener noreferrer">The Mathematical Principles of Marx's Labour Theory of Value</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Finance & Economics</em> | 2006</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">From Marx’s labour theory of value, this paper explicitly states basic postulates and formulas of the value function. Short-run and long-run value functions are derived by introducing short-run and long-run production functions. Using these value functions, it analyzes the evolution of commodity value in short and long runs, and examines impacts on value from changes in labour, capital, simultaneous changes in labour and capital, proportional changes in labour and capital, and shifts of production functions.</div>
+    </div>
+    <h3 id="part1-2">2. Surplus Value Theory</h3>
+   <h4 id="part1-2-1"><a href="https://doi.org/10.5281/zenodo.23330490" target="_blank" rel="noopener noreferrer">A General Theory of Land Rent: Starting from Absolute Rent</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Study & Exploration</em> | 2019</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Traditional political economy’s theory of absolute agricultural rent rests on three postulates: agricultural organic composition of capital is lower than industry; agricultural surplus value rate equals that of industry; agriculture does not participate in profit equalization so agricultural goods sell at value rather than production price. This paper considers more general conditions: agricultural organic composition of capital may be lower or higher than industry; agricultural surplus value rate may or may not equal industry; crucially, agriculture participates in profit equalization just like industry, and agricultural commodities sell at production prices same as manufactured goods. This yields a general theory of agricultural rent: agricultural rent rises with agricultural production prices and industrial advanced capital, and falls with industrial production prices and agricultural advanced capital. The existence condition of agricultural rent is that the ratio of agricultural production price to advanced capital must exceed that of industry.</div>
+    </div>
+   <h4 id="part1-2-2"><a href="https://doi.org/10.5281/zenodo.23330628" target="_blank" rel="noopener noreferrer">A Re-proof of the Fundamental Marxian Theorem</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua, Lu Wenjing | <em>Finance & Economics</em> | 2014</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">The so-called Fundamental Marxian Theorem states that a positive surplus value rate is both necessary and sufficient for a positive average profit rate. It was first proposed and elaborated by Okishio Nobuo and later supplemented by Morishima Michio and others. However their proofs contain critical flaws: for instance, incorrectly claiming positive profit in every sector implies positive net output in every sector, and unnecessarily assuming indecomposability of the augmented input coefficient matrix. These defects mean their proof of the Fundamental Marxian Theorem is not fully successful. Based on Marx’s theory of material and value composition of aggregate social product, this paper re-proves the Fundamental Marxian Theorem. The new proof requires no assumption of positive net output for every sector nor indecomposable augmented coefficient matrix. It therefore has wider applicability and greater generality.</div>
+    </div>
+   <h4 id="part1-2-3"><a href="https://doi.org/10.5281/zenodo.23330764" target="_blank" rel="noopener noreferrer">Will Equal Capitals Necessarily Yield Equal Profits?</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Study & Exploration</em> | 2014</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Traditional profit equalization theory in political economy argues capital mobility always narrows profit rate disparities across sectors. This paper proves under assumptions of economy-wide perfect competition, identical firms within each sector and fixed cost functions for all firms, profit rates of any sector may rise, fall or stay unchanged with capital mobility. Outcomes depend on cost conditions of representative firms in the sector. Only when representative firms’ profit rates increase with output will capital flows promote economy-wide profit equalization. Conversely, if representative firms’ profit rates decline with output, capital mobility widens cross-sector profit rate gaps.</div>
+    </div>
+   <h4 id="part1-2-4"><a href="https://doi.org/10.5281/zenodo.23331877" target="_blank" rel="noopener noreferrer">Can Negative Surplus Value Coexist with Positive Profit? Resolving Steedman’s Joint Production Puzzle</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua, Hou Hehong | <em>Journal of Renmin University of China</em> | 2011</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Steedman claims that calculating value following Marx’s method yields negative value and negative surplus value under joint production, leading to coexistence of negative surplus value and positive profit. This claim is incorrect. His error arises because he uses natural time rather than socially necessary labour time when computing value created by labour across production processes. In reality, when value created by labour is determined by socially necessary labour time, negative value and negative surplus value cannot emerge even under joint production; hence negative surplus value and positive profit cannot coexist.</div>
+    </div>
+   <h4 id="part1-2-5"><a href="https://doi.org/10.5281/zenodo.23331230" target="_blank" rel="noopener noreferrer">Properties of Production Functions and the Evolution of Profit Rates</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Study & Exploration</em> | 2009</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">The trend of profit rates is an important topic in Marxist political economy. Many prior studies insufficiently incorporate production functions and profit maximization, and thus fail to fully reveal profit rate dynamics. In fact, subject to profit maximization and fairly mild conditions such as constant output and input prices, profit rate trends depend entirely on the specific form of the production function. In other words, under profit maximization assumptions, the properties of the production function determine the law of motion of profit rates.</div>
+    </div>
+   <h4 id="part1-2-6"><a href="https://doi.org/10.5281/zenodo.23331368" target="_blank" rel="noopener noreferrer">Organic Composition and Optimal Composition of Capital</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Study & Exploration</em> | 2008</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">This paper employs modern analytical tools including iso-cost curves and expansion paths to examine Marx’s theory of organic composition of capital. It mathematically defines organic composition of capital and analyzes quantitative relations among technical composition, value composition and organic composition. It then investigates optimal capital composition for perfectly competitive firms under surplus value maximization, and finally explains the evolutionary pattern of optimal capital composition.</div>
+    </div>
+    <h4 id="part1-2-7"><a href="https://doi.org/10.5281/zenodo.23331474" target="_blank" rel="noopener noreferrer">Surplus Value Maximization Model</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Economic Study of Shanghai School</em> | 2007</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Based on Marx’s labour theory of value, this paper redefines firm revenue and cost, derives the firm’s surplus value function from revenue and cost, and discusses surplus value maximization for different types of firms: firms producing necessities and non-necessities, perfectly competitive firms, monopolistic firms and imperfectly competitive firms.</div>
+    </div>
+    <h3 id="part1-3">3. Value Transformation</h3>
+    <h4 id="part1-3-1"><a href="https://doi.org/10.5281/zenodo.23180240" target="_blank" rel="noopener noreferrer">Why Value Transformation is a Pseudo-Problem: Review and Summary</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>The Chinese Journal of Political Economy</em> | 2026</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">This paper reviews and summarizes the origin, debates and development of research on the "value transformation pseudo-problem". Early research rested on assumptions that total production price equals total value, total average profit equals total surplus value, plus reproduction conditions. Later work relaxed the equality of total average profit and total surplus value, retaining only equality of total production price and total value plus reproduction conditions. Subsequent studies further removed reproduction constraints, requiring only equality of total production price and total value. Latest research on this pseudo-problem shows no contradiction exists between selling commodities at value and equal capitals earning equal profits. Hence value transformation is neither possible nor necessary.</div>
+    </div>
+    <h4 id="part1-3-2"><a href="https://doi.org/10.5281/zenodo.23251858" target="_blank" rel="noopener noreferrer">Is There a Contradiction Between Selling Commodities at Value and Equal Capitals Receiving Equal Profits?</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>China Economic Studies</em> | 2020</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Traditional political economy holds that when commodities sell at value, equal capitals cannot obtain equal profits; if equal capitals must earn equal profits, commodities cannot sell at value. This view assumes sectors with different organic compositions of capital share identical and constant surplus value rates. However, during profit equalization, capital flows change advanced capital and product value in each sector, which in turn alter surplus value rates and organic compositions of capital. In general, these adjustments eventually equalize value-expressed profit rates across sectors. Consequently, price-expressed profit rates converge when commodities sell at value, meaning equal capitals can ultimately yield equal profits. Therefore, "equal average profit rates" indeed "can and must" "form on the basis of the law of value". The law of value applies both before and after profit equalization, to simple commodity production and advanced capitalist commodity production alike.</div>
+    </div>
+    <h4 id="part1-3-3"><a href="https://doi.org/10.5281/zenodo.23252082" target="_blank" rel="noopener noreferrer">Is There Any Difference Between Selling Commodities at Production Prices versus at Values?</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>The Chinese Journal of Political Economy</em> | 2019</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">In traditional political economy, selling commodities at value and selling at production price are treated as entirely distinct: the former applies before profit equalization and the latter after profit equalization. This paper proves that if production price is the transformed form of value and total production price of all commodities equals their total value, then production price represented per unit money must equal value represented per unit money, and unit production price of any commodity equals its corresponding unit value. This implies no difference between selling commodities at production price and selling at value. Commodities can sell at value both before and after profit equalization; this creates no conflict with profit equalization.</div>
+    </div>
+    <h4 id="part1-3-4"><a href="https://doi.org/10.5281/zenodo.23252606" target="_blank" rel="noopener noreferrer">Value Transformation: Aggregate Equality Implies Individual Equality</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Journal of Renmin University of China</em> | 2013</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Using reproduction conditions and the assumption that the determinant of the technical matrix is non-zero, we prove that if total social production price equals total value and total average profit equals total surplus value, production price of every commodity must equal its corresponding value. Further research shows reproduction conditions are unnecessary and non-zero determinant of the technical matrix can be derived from more fundamental and reasonable assumptions. Without relying on reproduction conditions, by imposing positive input coefficients and economic variables, this paper also proves that in value transformation, aggregate equality entails equality for individual commodities. The so-called value transformation merely transforms value into production price numerically identical to itself. In this sense, value transformation is a pseudo-problem.</div>
+    </div>
+    <h4 id="part1-3-5"><a href="https://doi.org/10.5281/zenodo.23252382" target="_blank" rel="noopener noreferrer">Will Production Prices Deviate from Values?</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Economic Review</em> | 2010</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">All value transformation models built around deviation coefficients overlook a critical point: the deviation coefficients solved in these models may always equal unity. In any reasonably specified transformation model with deviation coefficients, under the "two aggregate equalities" assumption (total production price of all social output equals total value and total average profit equals total surplus value), all deviation coefficients must equal 1. Hence production price of every commodity necessarily equals its value. Value transformation is therefore a "pseudo-transformation", and the value transformation problem is a pseudo-problem.</div>
+    </div>
+    <h4 id="part1-3-6"><a href="https://doi.org/10.5281/zenodo.23251130" target="_blank" rel="noopener noreferrer">Unnecessary Production Prices</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Economic Review</em> | 2009</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">The transformation from value to production price is an infinite process. If convergent, its limit may be defined as production price transformed from value. Assuming transformation from value to production price leaves technical production conditions and aggregate capital exploitation unchanged, with total average profit equal to total surplus value and total production price equal to total value, we prove after completion of transformation the production price of every commodity must equal its value. From this perspective, value transformation is a meaningless pseudo-problem.</div>
+    </div>
+    <h4 id="part1-3-7"><a href="https://doi.org/10.5281/zenodo.23251391" target="_blank" rel="noopener noreferrer">Value Transformation: A Pseudo-Problem</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Economic Review</em> | 2008</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Under constant production technology and non-zero determinant of the technical matrix of production, we prove that if total average profit equals total surplus value and total production price equals total value across the economy, then unit production price in each sector equals its corresponding unit value. In other words, under these fairly loose technical conditions, the so-called value transformation can only transform value into production price numerically identical to itself. Therefore the value transformation problem is essentially a pseudo-problem.</div>
+    </div>
+    <h3 id="part1-4">4. Reproduction Theory</h3>
+    <h4 id="part1-4-1"><a href="https://doi.org/10.5281/zenodo.23271175" target="_blank" rel="noopener noreferrer">On Accumulation and Consumption</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Shanghai Journal of Economics</em> | 2022</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Accumulation and consumption constitute one of the most important relations within national economies. While existing research has yielded rich results on the meaning of the accumulation-consumption relation, determinants of accumulation-consumption ratios, definitions and ranges of optimal accumulation or consumption ratios, and properties of accumulation and consumption under socialism, more specific quantitative research on accumulation-consumption ratios and their dynamics is needed, alongside relevant policy recommendations. Starting from Marx’s principles and assumptions about composition of aggregate social product, this paper first reveals intrinsic links between accumulation rates of Department I and Department II from realization conditions of simple and expanded reproduction. Based on this relation between sectoral accumulation rates, it explores determination and dynamics of aggregate social accumulation rate and aggregate consumption ratio. Finally, it explains how to combine government regulation and market mechanisms to achieve economy-wide optimal accumulation and consumption ratios.</div>
+    </div>
+    <h4 id="part1-4-2"><a href="https://doi.org/10.5281/zenodo.23271483" target="_blank" rel="noopener noreferrer">Capitalist Market Economy and Overproduction Economic Crisis</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Journal of South China Normal University</em> | 2022</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Given material and value composition of aggregate social product of two departments in a period, there exists a unique equilibrium accumulation curve and a unique sustained equilibrium accumulation rate. Each point on the equilibrium accumulation curve represents a pair of equilibrium accumulation rates for the two departments ensuring demand-supply balance of aggregate social product within that period. The sustained equilibrium accumulation rate guarantees demand-supply balance of aggregate social product not only in the current period but also in the next and all subsequent periods. This sustained equilibrium accumulation rate partitions all feasible desired accumulation rates of the two departments into convergent and divergent regions. Under capitalist private ownership and decentralized decisions of pure market economies, when desired accumulation rates fall in the divergent region, relative overproduction of means of production and economic crises eventually emerge. Although government intervention can partially remedy defects of decentralized pure market decision-making, it cannot fully eliminate consequences arising from relatively shrinking purchasing power of working people and anarchy of social production.</div>
+    </div>
+    <h4 id="part1-4-3"><a href="https://doi.org/10.5281/zenodo.23271335" target="_blank" rel="noopener noreferrer">Market Mechanism, Government Regulation and Economic Growth</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>The Chinese Journal of Political Economy</em> | 2022</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Within Marx’s two-department expanded reproduction theory, introducing profit equalization while retaining all other assumptions — specifically, Department I accumulates first and Department II adjusts accordingly — accumulation rates and growth rates of both departments converge. Similarly, in a more general economy with arbitrarily many sectors, when one or leading capital-goods sectors initiate accumulation at fixed accumulation rates and other sectors adjust to maintain market clearing, accumulation rates and growth rates of all sectors converge. The policy implication of this finding: to reach a targeted economy-wide planned growth rate, the government only needs to compute the optimal accumulation rate required for that growth target and set the leading sector’s accumulation rate equal to this optimal value. Accumulation rates of remaining sectors are automatically adjusted by markets according to supply and demand.</div>
+    </div>
+    <h4 id="part1-4-4"><a href="https://doi.org/10.5281/zenodo.23200617" target="_blank" rel="noopener noreferrer">Accumulation and Growth in the Two Departments: Government Regulation and Market Mechanism</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Academic Research</em> | 2017</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">In Marx’s expanded reproduction model, growth rates of the two departments converge starting from period two, but their accumulation rates remain different. If profit equalization is introduced into Marx’s model, maintaining constant average profit rate, organic composition of capital and Department I accumulation rate, while Department II adjusts its accumulation rate to preserve balance between the two departments, then starting from period two both growth rates and accumulation rates converge. This means that, to achieve any given target growth rate for the entire economy, the government only needs to set the accumulation rate of Department I equal to the economy-wide optimal accumulation rate determined by that growth target and keep it constant, while allowing the accumulation rate of Department II to adjust automatically in response to market requirements.</div>
+    </div>
+    <h4 id="part1-4-5"><a href="https://doi.org/10.5281/zenodo.23271268" target="_blank" rel="noopener noreferrer">Marx's Reproduction Theory and the Nature of Economic Growth</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>The Journal of Shanghai Administration Institute</em> | 2011</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">A common view holds that under rising organic composition of capital in Marx’s expanded reproduction theory, Department I producing means of production necessarily grows faster than Department II producing consumption goods. This view is incorrect. Assuming constant average profit rate, this paper first derives balanced-exchange accumulation rates ensuring full realization of aggregate social product and balanced-growth accumulation rates ensuring proportional growth of the two departments. It then identifies balanced accumulation rates satisfying both balanced exchange and balanced growth. Finally it shows growth of either department may outpace, lag behind or equal the other regardless of whether organic composition of capital rises or not.</div>
+    </div>
+    <h4 id="part1-4-6"><a href="https://doi.org/10.5281/zenodo.23271043" target="_blank" rel="noopener noreferrer">Input Output Tableau of Marx's Reproduction Theory</a></h4>
+    <p class="paper-meta">Feng Jinhua | <em>World Review of Political Economy</em> | 2010</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Samuelson’s input output interpretation of the two departments of social production, which has been considered right by many economists, in fact does not properly reflect Marx's reproduction theory. A major mistake of Samuelson's interpretation is that he included existing variable capital in the final demand. The paper derives input output analysis from Marx's reproduction theory for not only the simple case of two departments of social production but also the general case of more industries. In all the discussions, we firstly develop the functions of output composition according to Marx's theory of reproduction, then the functions of supply and demand equilibrium according to the requirements of reproduction, and lastly the Tableaus based on both the functions of output composition and the functions of supply and demand.</div>
+    </div>
+    <h3 id="part1-5">5. Economic Methodology</h3>
+    <h4 id="part1-5-1"><a href="https://doi.org/10.5281/zenodo.23306755" target="_blank" rel="noopener noreferrer">Research Methods</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | Social Sciences Academic Press(CHINA) | 2014</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">This is a chapter discussing research methods from the author’s book Value Determination, Value Transformation and Joint Production. It systematically reviews Marx’s research methodology in political economy, deeply discusses important methodological aspects Marx did not elaborate or only briefly touched upon, clarifies errors caused by dogmatic or pragmatic attitudes toward Marxian economic methodology, and analyzes theories from modern economics (mainly modern Western economics) and other social and natural sciences from a methodological perspective. On this basis, the author divides the whole methodological system into four interrelated but distinct components: object of research, research outcome, research process, and method of presentation. The object of research refers to objective things in reality, namely the "concrete-in-reality". The task of scientific research is to grasp this concrete-in-reality conceptually. The concrete reproduced in thought is the "concrete-in-thought". The research process is the procedure starting from concrete-in-reality to obtain logically consistent and empirically valid concrete-in-thought. It has two stages: first, "from concrete to abstract": starting from real concrete reality, we abstract its determinations via analysis; second, "rising from the abstract to the concrete": starting from abstract determinations obtained from real concrete reality, we construct the concrete-in-thought through synthesis. The so-called method of presentation is the process of organizing and publishing the concrete-in-thought as research results, giving it an external communicable form (such as published papers or books). From concrete-in-reality (object of research) to concrete-in-thought (research result), then externalization of concrete-in-thought (papers and books): this constitutes a complete cycle of the whole research process.</div>
+    </div>
+    <h4 id="part1-5-2"><a href="https://doi.org/10.5281/zenodo.23306842" target="_blank" rel="noopener noreferrer">Das Kapital and Research Methods in Modern Economics</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Jiangxi Social Sciences</em> | 2014</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Most Chinese scholars working in political economics agree that innovations and advances in the research methods of Marxist economics can be achieved by drawing upon methodologies from modern economics. However, few have recognized that many valid and effective analytical tools of modern economics can be traced back to Marx. Through a comparative analysis of three major analytical frameworks in Das Kapital and modern economics: micro and macro analysis, equilibrium and disequilibrium analysis, positive and normative analysis, this paper demonstrates that these methodologies have long appeared in various forms within Das Kapital. Not only have they appeared, they have often been thoroughly discussed. Moreover, in many respects, Marx’s treatment exceeds the understandings of many contemporary Western economists.</div>
+    </div>
+    <h4 id="part1-5-3"><a href="https://doi.org/10.5281/zenodo.23306952" target="_blank" rel="noopener noreferrer">On the Role of Mathematical Methods in the Research of Marxist Political Economy</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Economic Study of Shanghai School</em> | 2006</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">The “advantages” of mathematics as a tool in economic analysis include: first, mathematical language is more precise; second, mathematical reasoning is more rigorous; third, mathematical discussion is more concise; fourth, mathematical analysis is more convenient; fifth, mathematical tools are sharper. Finally, pure mathematical deduction sometimes yields new findings that cannot or can hardly be discovered through other analytical approaches.</div>
+    </div>
+    <h4 id="part1-5-4"><a href="https://doi.org/10.5281/zenodo.23307015" target="_blank" rel="noopener noreferrer">A Brief Discussion on Marx's Scientific Abstraction</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Study & Exploration</em> | 2006</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Drawing on analytical methods of modern science (especially modern economics), this paper discusses Marx’s method of scientific abstraction. The author describes modes of abstraction using set operations, explains the process of abstraction via the interplay between extensive and intensive abstraction, identifies the limits of abstraction through cost-benefit analysis of abstraction, and elaborates the nature of abstraction from the unity of its subjective form and objective content.</div>
+    </div>
+    <h4 id="part1-5-5"><a href="https://doi.org/10.5281/zenodo.23307116" target="_blank" rel="noopener noreferrer">Several Issues Concerning Research Methods in Economics</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Journal of Shanghai Administrative Institute</em> | 2004</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">In this paper, the system of economic methodology comprises four fundamental components: object of research, research outcome, research process, and method of presentation. The “object of research” is the concrete reality. The “research outcome” is the concrete in thought, a reflection of concrete reality. The task of the “research process” is to derive the logically consistent concrete in thought that corresponds to reality from concrete reality. The “method of presentation” concerns the externalization of the concrete in thought (such as published papers and books). The complete cycle of research runs from concrete reality (object of research) to the concrete in thought (research outcome), and then to the externalization of the concrete in thought (papers and monographs).</div>
+    </div>
+    <h4 id="part1-5-6"><a href="https://doi.org/10.5281/zenodo.23307172" target="_blank" rel="noopener noreferrer">Inheriting and Developing Marxist Economic Research Methods</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Studies on Mao Zedong and Deng Xiaoping Theories</em> | 2004</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Taking Marx’s economic methodology as the foundation, while absorbing scientific components from modern Western economic methods and drawing on approaches from other social sciences and natural sciences, we should develop our own unique and effective methodologies. These methodologies can be deployed to investigate and resolve major, universally significant real-world economic issues, especially those related to China’s socialist market economy.</div>
+    </div>
+    <h4 id="part1-5-7"><a href="https://doi.org/10.5281/zenodo.23307199" target="_blank" rel="noopener noreferrer">The Application of the Calculus of Variations in Economics</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Economics Information</em> | 1991</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">The extremum theory of ordinary calculus seeks the optimal value(s) of a function. The calculus of variations seeks the optimal function itself. This feature enables the calculus of variations to be applied across a wide range of fields including economics.</div>
+    </div>
+    <h3 id="part1-6">6. Monographs</h3>
+    <h4 id="part1-6-1"><a href="https://doi.org/10.5281/zenodo.23293775" target="_blank" rel="noopener noreferrer">Marxist Economics: Principles and Applications</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <p class="paper-meta">Feng Jinhua | Shanghai University of Finance and Economics Press | 2021</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">This book is divided into two parts: the “fundamental principles” of Marxist economics (Chapter 1) and “practical applications” (remaining chapters). The author attempts to use a unified fundamental principle, namely the law of value, to explain and resolve diverse theoretical and practical economic problems, in particular to resolve many longstanding puzzles in traditional political economy and provide rational recommendations for economic policy.</div>
+    </div>
+    <h3 id="part1-7">7. Miscellaneous</h3>
+    <h4 id="part1-7-1"><a href="https://doi.org/10.5281/zenodo.23200805" target="_blank" rel="noopener noreferrer">Toward a New Theory of GDP</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>The Chinese Journal of Political Economy</em> | 2020</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Traditional GDP accounting methods have notable defects. Nominal GDP aggregates real output using current-period prices; it accounts for changes in relative commodity prices or price structure but does not remove the effects of inflation or deflation. Real GDP aggregates real output using base-period prices, eliminating inflationary or deflationary effects yet ignoring changes in relative prices. To overcome the limitations of nominal and real GDP, this paper introduces the concepts of the new GDP deflator and new GDP. The new GDP deflator is the ratio of total current prices evaluated at base-period output to total base-period prices. New GDP equals nominal GDP divided by the new GDP deflator, i.e., nominal GDP adjusted by the new GDP deflator. Unlike conventional nominal and real GDP, new GDP excludes inflation or deflation while fully incorporating shifts in relative commodity prices. New GDP possesses several desirable properties: it remains unchanged under proportional changes in all current prices; it changes proportionally with changes in all current outputs; it rises when current output of any commodity increases; it rises with price increases of relatively advantageous commodities and falls with price increases of relatively disadvantageous commodities, and it is invariant to price changes of commodities with neither relative advantage nor disadvantage. In short, new GDP is unaffected by proportional price movements (inflation or deflation) but responds to non-proportional price movements, namely changes in relative prices. Specifically, it rises (falls) with price increases of commodities whose growth rate exceeds (falls below) the average growth rate of the whole economy, and remains unchanged for commodities whose growth rate equals the economy-wide average growth rate.</div>
+    </div>
+    <h4 id="part1-7-2"><a href="https://doi.org/10.5281/zenodo.23404112" target="_blank" rel="noopener noreferrer external">People -centered versus Capital -centered: A Comparison of Two Development Paths</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Academic Research</em> | 2020</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Both contemporary capitalism and socialism with Chinese characteristics at the present stage operate under a market economy or commodity economy, and are subject to the regulation and constraint of the basic law of commodity economy — the law of value. Nevertheless, under different social systems, and in particular due to divergent ownership of the means of production, the same law of value can yield entirely different outcomes. The capitalist market economy is capital-centered; its purpose of production is to extract surplus value to the greatest possible extent. Specifically, the growth rate of surplus value is generally higher, and consequently the growth rate of labor power value is generally lower, than the growth rate of nominal gross domestic product (GDP). The socialist market economy is people-centered, and its purpose of production is common prosperity. In the socialist market economy, workers’ individual interests are fundamentally consistent with their collective interests, and their immediate interests with their long-term interests. Accordingly, the growth rate of labor power value, and hence that of surplus value, is generally equal to the growth rate of nominal gross domestic product (GDP).</div>
+    </div>
+    <h4 id="part1-7-3"><a href="https://doi.org/10.5281/zenodo.23404348" target="_blank" rel="noopener noreferrer external">Properly Handling the Relationship between the Real and Virtual Economies to Promote High-Quality Economic Development</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Academic Research</em> | 2019</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">A modern market economy can be clearly divided into two parts: the "real" and the "virtual". The former produces and exchanges tangible products whose natural use values satisfy human needs. The latter trades virtual products that meet human needs through socially determined value or price, where value or price itself functions as a use value. If the profit rates of the virtual economy and the real economy are equal, it implies that resources are appropriately allocated between the real and virtual sectors. However, under spontaneous market mechanisms, the development of the virtual economy often goes too far, giving rise to the so-called "shift from the real economy to the virtual economy", or remains underdeveloped and fails to fully play its role in improving resource allocation efficiency and mitigating risks. To guard against both excess and underdevelopment, the government must conduct effective supervision and regulation of the virtual economy so as to maintain dynamic balance between the virtual economy and the real economy and ensure high-quality development of the real economy.</div>
+    </div>
+    <h4 id="part1-7-4"><a href="https://doi.org/10.5281/zenodo.23404630" target="_blank" rel="noopener noreferrer external">Upholding Marxist Political Economy in the Course of Its Development</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Theory & Reform</em> | 2019</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Two requirements must be met to uphold and develop Marxist political economy. The first is “to pursue development while upholding the theory”. “Development” without upholding the theory may easily lead astray. The second is “to uphold the theory in the course of its development”. “Upholding” without development will end up in a blind alley. Only by integrating the two can we enrich and develop Marxist political economy and socialist political economy with Chinese characteristics.</div>
+    </div>
+    <h4 id="part1-7-5"><a href="https://doi.org/10.5281/zenodo.23404721" target="_blank" rel="noopener noreferrer external">Constructing Development Economics with Chinese Characteristics Based on the New Development Philosophy</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <p class="paper-meta">Feng Jinhua, Lu Wenjing | <em>Academic Research</em> | 2016</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">China is a large developing country practicing a socialist market economy. Since the reform and opening up, China has achieved remarkable accomplishments in economic development and social progress with Chinese characteristics, creating a miracle in world history. At the Fifth Plenary Session of the 18th Central Committee of the Communist Party of China, the New Development Philosophy — namely innovation, coordination, green development, opening-up and sharing — was put forward. On the basis of an in-depth summary of the experience and lessons of human economic development, especially China’s economic development, as well as full absorption of valuable findings from previous development economics studies on economic issues in developing countries, the philosophy scientifically answers the questions of what to develop, how to develop and for whom to develop in the context of economic development with Chinese characteristics. It points to a development path that is more efficient, coordinated, sustainable, open and equitable, greatly enriches the connotation of Marxist political economy, and lays a solid foundation for constructing development economics with Chinese characteristics.</div>
+    </div>
+
+    <!-- Part 2 Programming Economics -->
+    <h2 id="part2">II. Programming Economics</h2>
+    <h3 id="part2-1">1. Marx’s Reproduction Theory &nbsp;&nbsp (Under Construction)</h3>
+    <h3 id="part2-2">2. Marx’s Reproduction Theory with Technological Progress &nbsp;&nbsp;(Under Construction)</h3>
+    <h3 id="part2-3">3. Generalization of Marx’s Reproduction Theory &nbsp;&nbsp;(Under Construction)</h3>
+    <h2 id="part3">III. Western Economics</h2>
+    <h3 id="part3-1">1. Category I &nbsp;&nbsp;(Under Construction)</h3>
+    <h3 id="part3-2">2. Category II &nbsp;&nbsp;(Under Construction)</h3>
+
+<script>
+function toggleAbs(el){
+    const content = el.nextElementSibling;
+    if(content.style.display === "block"){
+        content.style.display = "none";
+        el.innerText = "Expand Abstract";
+    }else{
+        content.style.display = "block";
+        el.innerText = "Collapse Abstract";
+    }
+}
+function expandAll(){
+    document.querySelectorAll(".abs-content").forEach(x=>{
+        x.style.display="block";
+    })
+    document.querySelectorAll(".abs-btn").forEach(x=>{
+        x.innerText="Collapse Abstract";
+    })
+}
+function collapseAll(){
+    document.querySelectorAll(".abs-content").forEach(x=>{
+        x.style.display="none";
+    })
+    document.querySelectorAll(".abs-btn").forEach(x=>{
+        x.innerText="Expand Abstract";
+    })
+}
+</script>
+    <!-- ===== Footer 页脚 ===== -->
+    <footer>
+      © 2026 Feng Jinhua. All rights reserved.<br>
+      ORCID: <a href="https://orcid.org/0009-0004-0328-6136" style="color:#0066cc">0009-0004-0328-6136</a> | Zenodo Archive
+    </footer>
+</body>
+</html>
