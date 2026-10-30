@@ -10,7 +10,7 @@
     <link rel="alternate" hreflang="en" href="https://my1957.pages.dev/index-en.html" />
     <link rel="alternate" hreflang="x-default" href="https://my1957.pages.dev/index.html" />
     <meta name="description" content="Academic homepage of Feng Jinhua, research on Marxist political economy, Labour Theory of Value, Surplus Value Theory, Value Transformation, reproduction theory, new GDP theory, mathematical economics. Papers with Zenodo DOI and full-text downloads.">
-    <meta name="keywords" content="Feng Jinhua, Marxist political economy, Labour Theory of Value, Surplus Value Theory, Value Transformation, reproduction theory, mathematical economics">
+    <meta name="keywords" content="Marxist political economy, Labour Theory of Value, Value Transformation, reproduction theory">
     <meta property="og:title" content="Feng Jinhua Academic Homepage">
     <meta property="og:description" content="List of academic papers and books by Feng Jinhua. 冯金华论文与著作目录">
     <meta property="og:type" content="website">
@@ -128,6 +128,10 @@
             color: #555;
             line-height: 1.6;
         }
+        .paper-meta.video-note {
+            padding-left:0;
+        }
+
         /* 折叠简介容器 */
         .paper-abstract-wrap {
             padding-left: 6em;
@@ -141,6 +145,9 @@
             color: #0066cc;
             cursor: pointer;
             user-select: none;
+            border: none;
+            background: transparent;
+            padding: 0;
         }
         .abs-btn:hover {
             color: #004499;
@@ -162,27 +169,28 @@
         }
         .nav-box > strong {
             display:block;
-            text-align:left;
+            text-align:center;
             margin-bottom:12px;
         }
         /* 二级标题：竖排（纵向排列） */
+
         .nav-main {
             display:flex;
-            flex-direction: column;
-            gap: 16px;
+            justify-content:center;
+            gap: 36px; /* 控制二级标题之间的横向间距，可自由调大/调小 */
+            flex-wrap: wrap;
+            margin-bottom:16px;
         }
-        /* 二级导航项：悬挂缩进 */
-        .nav-main-item {
-            padding-left: 2em;
-            text-indent: -2em;
+        .nav-main > div {
+            min-width: 150px;
         }
-        .nav-main-item > a {
+        .nav-main a {
             font-size:18px; /* 二级导航字体 */
             color: #0066cc;
             text-decoration: none;
             font-weight:bold;
         }
-        .nav-main-item > a:hover {
+        .nav-main a:hover {
             color: #004499;
         }
         /* 三级标题：竖排、悬挂缩进 */
@@ -279,10 +287,11 @@
                     <a href="#part1-3">3. Value Transformation</a>
                     <a href="#part1-4">4. Reproduction Theory</a>
                     <a href="#part1-5">5. Economic Methodology</a>
-                    <a href="#part1-6">6. Monographs</a>
-                    <a href="#part1-7">7. Miscellaneous</a>
+                    <a href="#part1-6">6. Other Articles</a>
+                    <a href="#part1-7">7. Monographs</a>
                 </div>
             </div>
+
             <div class="nav-main-item">
                 <a href="#part2">II. Programming Economics</a>
                 <!-- 属于part2的三级标题，竖排 + 悬挂缩进 -->
@@ -583,7 +592,7 @@
         <div class="abs-content">Under constant production technology and non-zero determinant of the technical matrix of production, we prove that if total average profit equals total surplus value and total production price equals total value across the economy, then unit production price in each sector equals its corresponding unit value. In other words, under these fairly loose technical conditions, the so-called value transformation can only transform value into production price numerically identical to itself. Therefore the value transformation problem is essentially a pseudo-problem.</div>
     </div>
 
-    <p id="part1-3-8-video" class="paper-meta" style="margin-left: 0rem;">
+    <p id="part1-3-8-video" class="paper-meta video-note">
     <strong>Video: Why the Value Transformation is a Pseudo-Problem</strong>&nbsp;&nbsp;
     <a href="https://www.bilibili.com/video/BV1Vu411o7n1/?spm_id_from=333.337.search-card.all.click" target="_blank" rel="noopener noreferrer external">Watch on Bilibili</a>
     &nbsp;|&nbsp;
@@ -621,7 +630,7 @@
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">A common view holds that under rising organic composition of capital in Marx's expanded reproduction theory, Department I producing means of production necessarily grows faster than Department II producing consumption goods. This view is incorrect. Assuming constant average profit rate, this paper first derives balanced-exchange accumulation rates ensuring full realization of aggregate social product and balanced-growth accumulation rates ensuring proportional growth of the two departments. It then identifies balanced accumulation rates satisfying both balanced exchange and balanced growth. Finally it shows growth of either department may outpace, lag behind or equal the other regardless of whether organic composition of capital rises or not.</div>
     </div>
-    <h4 id="part1-4-6"><a href="https://doi.org/10.5281/zenodo.23271043" target="_blank" rel="noopener noreferrer">Input Output Tableau of Marx's Reproduction Theory</a></h4>
+    <h4 id="part1-4-6"><a href="https://doi.org/10.5281/zenodo.23271043" target="_blank" rel="noopener noreferrer">Input Output Tableau of Marx's Reproduction Theory</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>World Review of Political Economy</em> | 2010</p>
     <div class="paper-abstract-wrap">
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
@@ -634,174 +643,266 @@
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">This is a chapter discussing research methods from the author’s book Value Determination, Value Transformation and Joint Production. It systematically reviews Marx's research methodology in political economy, deeply discusses important methodological aspects Marx did not elaborate or only briefly touched upon, clarifies errors caused by dogmatic or pragmatic attitudes toward Marxian economic methodology, and analyzes theories from modern economics (mainly modern Western economics) and other social and natural sciences from a methodological perspective. On this basis, the author divides the whole methodological system into four interrelated but distinct components: object of research, research outcome, research process, and method of presentation. The object of research refers to objective things in reality, namely the "concrete-in-reality". The task of scientific research is to grasp this concrete-in-reality conceptually. The concrete reproduced in thought is the "concrete-in-thought". The research process is the procedure starting from concrete-in-reality to obtain logically consistent and empirically valid concrete-in-thought. It has two stages: first, "from concrete to abstract": starting from real concrete reality, we abstract its determinations via analysis; second, "rising from the abstract to the concrete": starting from abstract determinations obtained from real concrete reality, we construct the concrete-in-thought through synthesis. The so-called method of presentation is the process of organizing and publishing the concrete-in-thought as research results, giving it an external communicable form (such as published papers or books). From concrete-in-reality (object of research) to concrete-in-thought (research result), then externalization of concrete-in-thought (papers and books): this constitutes a complete cycle of the whole research process.</div>
     </div>
-    <h4 id="part1-5-2"><a href="https://doi.org/10.5281/zenodo.23306842" target="_blank" rel="noopener noreferrer">Das Kapital and Research Methods in Modern Economics</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part1-5-2"><a href="https://doi.org/10.5281/zenodo.23306842" target="_blank" rel="noopener noreferrer">Das Kapital and Research Methods in Modern Economics</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Jiangxi Social Sciences</em> | 2014</p>
     <div class="paper-abstract-wrap">
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">Most Chinese scholars working in political economics agree that innovations and advances in the research methods of Marxist economics can be achieved by drawing upon methodologies from modern economics. However, few have recognized that many valid and effective analytical tools of modern economics can be traced back to Marx. Through a comparative analysis of three major analytical frameworks in Das Kapital and modern economics: micro and macro analysis, equilibrium and disequilibrium analysis, positive and normative analysis, this paper demonstrates that these methodologies have long appeared in various forms within Das Kapital. Not only have they appeared, they have often been thoroughly discussed. Moreover, in many respects, Marx's treatment exceeds the understandings of many contemporary Western economists.</div>
     </div>
-    <h4 id="part1-5-3"><a href="https://doi.org/10.5281/zenodo.23306952" target="_blank" rel="noopener noreferrer">On the Role of Mathematical Methods in the Research of Marxist Political Economy</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part1-5-3"><a href="https://doi.org/10.5281/zenodo.23306952" target="_blank" rel="noopener noreferrer">On the Role of Mathematical Methods in the Research of Marxist Political Economy</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Economic Study of Shanghai School</em> | 2006</p>
     <div class="paper-abstract-wrap">
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">The “advantages” of mathematics as a tool in economic analysis include: first, mathematical language is more precise; second, mathematical reasoning is more rigorous; third, mathematical discussion is more concise; fourth, mathematical analysis is more convenient; fifth, mathematical tools are sharper. Finally, pure mathematical deduction sometimes yields new findings that cannot or can hardly be discovered through other analytical approaches.</div>
     </div>
-    <h4 id="part1-5-4"><a href="https://doi.org/10.5281/zenodo.23307015" target="_blank" rel="noopener noreferrer">A Brief Discussion on Marx's Scientific Abstraction</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part1-5-4"><a href="https://doi.org/10.5281/zenodo.23307015" target="_blank" rel="noopener noreferrer">A Brief Discussion on Marx's Scientific Abstraction</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Study & Exploration</em> | 2006</p>
     <div class="paper-abstract-wrap">
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">Drawing on analytical methods of modern science (especially modern economics), this paper discusses Marx's method of scientific abstraction. The author describes modes of abstraction using set operations, explains the process of abstraction via the interplay between extensive and intensive abstraction, identifies the limits of abstraction through cost-benefit analysis of abstraction, and elaborates the nature of abstraction from the unity of its subjective form and objective content.</div>
     </div>
-    <h4 id="part1-5-5"><a href="https://doi.org/10.5281/zenodo.23307116" target="_blank" rel="noopener noreferrer">Several Issues Concerning Research Methods in Economics</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part1-5-5"><a href="https://doi.org/10.5281/zenodo.23307116" target="_blank" rel="noopener noreferrer">Several Issues Concerning Research Methods in Economics</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Journal of Shanghai Administrative Institute</em> | 2004</p>
     <div class="paper-abstract-wrap">
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">In this paper, the system of economic methodology comprises four fundamental components: object of research, research outcome, research process, and method of presentation. The “object of research” is the concrete reality. The “research outcome” is the concrete in thought, a reflection of concrete reality. The task of the “research process” is to derive the logically consistent concrete in thought that corresponds to reality from concrete reality. The “method of presentation” concerns the externalization of the concrete in thought (such as published papers and books). The complete cycle of research runs from concrete reality (object of research) to the concrete in thought (research outcome), and then to the externalization of the concrete in thought (papers and monographs).</div>
     </div>
-    <h4 id="part1-5-6"><a href="https://doi.org/10.5281/zenodo.23307172" target="_blank" rel="noopener noreferrer">Inheriting and Developing Marxist Economic Research Methods</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part1-5-6"><a href="https://doi.org/10.5281/zenodo.23307172" target="_blank" rel="noopener noreferrer">Inheriting and Developing Marxist Economic Research Methods</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Studies on Mao Zedong and Deng Xiaoping Theories</em> | 2004</p>
     <div class="paper-abstract-wrap">
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">Taking Marx's economic methodology as the foundation, while absorbing scientific components from modern Western economic methods and drawing on approaches from other social sciences and natural sciences, we should develop our own unique and effective methodologies. These methodologies can be deployed to investigate and resolve major, universally significant real-world economic issues, especially those related to China’s socialist market economy.</div>
     </div>
-    <h4 id="part1-5-7"><a href="https://doi.org/10.5281/zenodo.23307199" target="_blank" rel="noopener noreferrer">The Application of the Calculus of Variations in Economics</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part1-5-7"><a href="https://doi.org/10.5281/zenodo.23307199" target="_blank" rel="noopener noreferrer">The Application of the Calculus of Variations in Economics</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Economics Information</em> | 1991</p>
     <div class="paper-abstract-wrap">
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">The extremum theory of ordinary calculus seeks the optimal value(s) of a function. The calculus of variations seeks the optimal function itself. This feature enables the calculus of variations to be applied across a wide range of fields including economics.</div>
     </div>
-    <h3 id="part1-6">6. Monographs</h3>
-    <h4 id="part1-6-1"><a href="https://doi.org/10.5281/zenodo.23293775" target="_blank" rel="noopener noreferrer">Marxist Economics: Principles and Applications</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
-    <p class="paper-meta">Feng Jinhua | Shanghai University of Finance and Economics Press | 2021</p>
-    <div class="paper-abstract-wrap">
-        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
-        <div class="abs-content">This work employs the law of value as a unified fundamental principle to address theoretical and practical economic puzzles in traditional political economy and deliver policy implications.Chapter 1 derives the formula for unit commodity value and establishes the “value‑price equation”. Subsequent chapters use this framework to derive supply-demand curves, assess economic efficiency and resource allocation, and verify that the law of value remains valid after profit rate equalization. The theory is extended to joint production, multi-country and multi-period scenarios, covering joint-product value, international value, interest rates and economic growth. It further develops a general ground rent theory, discusses regulation of the virtual economy, and analyzes workers’ income growth relative to nominal GDP growth under a socialist market economy.</div>
-    </div>
 
-    <p id="part1-6-1-video" class="paper-meta" style="margin-left: 0rem;">
-    <strong>Video: Marxist Economics: Principles and Applications</strong>&nbsp;&nbsp;
-    <a href="https://www.bilibili.com/video/BV1AXnF68Eb8/?spm_id_from=333.1387.homepage.video_card.click&vd_source=2b7262d75c3027cf2efd5724e2d9874f" target="_blank" rel="noopener noreferrer external">Watch on Bilibili</a>
-    &nbsp;|&nbsp;
-    <a href="https://doi.org/10.5281/zenodo.23486965" target="_blank" rel="noopener noreferrer external">Watch on and Download from Zenodo</a>
-    </p>
+    <h3 id="part1-6">6. Other Articles</h3>
 
-    <h4 id="part1-6-2"><a href="https://doi.org/10.5281/zenodo.23445895" target="_blank" rel="noopener noreferrer">Mathematical Principles of Marxist Economics</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
-    <p class="paper-meta">Feng Jinhua | Shanghai People's Publishing House | 2010</p>
-    <div class="paper-abstract-wrap">
-        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
-        <div class="abs-content">This book seeks to deduce Marxist political economy mathematically starting from the labor theory of value, where the magnitude of value is determined by socially necessary labor time in its first sense. First, it introduces the production function to derive the value function and its variation rules. Second, using the value function (not the price function), it derives firms’ revenue, cost, and surplus-value functions. Third, based on the surplus-value function, it investigates the behavior of surplus-value-maximizing firms, including perfectly competitive, monopolistic and other imperfectly competitive firms. Fourth, it derives firms’ labor demand and product supply functions from surplus-value maximization. Fifth, it constructs theories of the aggregate labor and product markets from these functions and solves for their equilibrium values. Sixth, integrating the standalone labor-market and product-market theories, it develops a general equilibrium theory for both markets and elaborates how general equilibrium value is determined and changes.</div>
-    </div>
-
-    <h3 id="part1-7">7. Miscellaneous</h3>
-    <h4 id="part1-7-1"><a href="https://doi.org/10.5281/zenodo.23200805" target="_blank" rel="noopener noreferrer">Toward a New Theory of GDP</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part1-6-1"><a href="https://doi.org/10.5281/zenodo.23200805" target="_blank" rel="noopener noreferrer">Toward a New Theory of GDP</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>The Chinese Journal of Political Economy</em> | 2020</p>
     <div class="paper-abstract-wrap">
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">Traditional GDP accounting methods have notable defects. Nominal GDP aggregates real output using current-period prices; it accounts for changes in relative commodity prices or price structure but does not remove the effects of inflation or deflation. Real GDP aggregates real output using base-period prices, eliminating inflationary or deflationary effects yet ignoring changes in relative prices. To overcome the limitations of nominal and real GDP, this paper introduces the concepts of the new GDP deflator and new GDP. The new GDP deflator is the ratio of total current prices evaluated at base-period output to total base-period prices. New GDP equals nominal GDP divided by the new GDP deflator, i.e., nominal GDP adjusted by the new GDP deflator. Unlike conventional nominal and real GDP, new GDP excludes inflation or deflation while fully incorporating shifts in relative commodity prices. New GDP possesses several desirable properties: it remains unchanged under proportional changes in all current prices; it changes proportionally with changes in all current outputs; it rises when current output of any commodity increases; it rises with price increases of relatively advantageous commodities and falls with price increases of relatively disadvantageous commodities, and it is invariant to price changes of commodities with neither relative advantage nor disadvantage. In short, new GDP is unaffected by proportional price movements (inflation or deflation) but responds to non-proportional price movements, namely changes in relative prices. Specifically, it rises (falls) with price increases of commodities whose growth rate exceeds (falls below) the average growth rate of the whole economy, and remains unchanged for commodities whose growth rate equals the economy-wide average growth rate.</div>
     </div>
-    <h4 id="part1-7-2"><a href="https://doi.org/10.5281/zenodo.23404112" target="_blank" rel="noopener noreferrer external">People -centered versus Capital -centered: A Comparison of Two Development Paths</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+
+    <h4 id="part1-6-2"><a href="https://doi.org/10.5281/zenodo.23404112" target="_blank" rel="noopener noreferrer external">People -centered versus Capital -centered: A Comparison of Two Development Paths</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Academic Research</em> | 2020</p>
     <div class="paper-abstract-wrap">
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">Both contemporary capitalism and socialism with Chinese characteristics at the present stage operate under a market economy or commodity economy, and are subject to the regulation and constraint of the basic law of commodity economy — the law of value. Nevertheless, under different social systems, and in particular due to divergent ownership of the means of production, the same law of value can yield entirely different outcomes. The capitalist market economy is capital-centered; its purpose of production is to extract surplus value to the greatest possible extent. Specifically, the growth rate of surplus value is generally higher, and consequently the growth rate of labor power value is generally lower, than the growth rate of nominal gross domestic product (GDP). The socialist market economy is people-centered, and its purpose of production is common prosperity. In the socialist market economy, workers’ individual interests are fundamentally consistent with their collective interests, and their immediate interests with their long-term interests. Accordingly, the growth rate of labor power value, and hence that of surplus value, is generally equal to the growth rate of nominal gross domestic product (GDP).</div>
     </div>
-    <h4 id="part1-7-3"><a href="https://doi.org/10.5281/zenodo.23404348" target="_blank" rel="noopener noreferrer external">Properly Handling the Relationship between the Real and Virtual Economies to Promote High-Quality Economic Development</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+
+    <h4 id="part1-6-3"><a href="https://doi.org/10.5281/zenodo.23404348" target="_blank" rel="noopener noreferrer external">Properly Handling the Relationship between the Real and Virtual Economies to Promote High-Quality Economic Development</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Academic Research</em> | 2019</p>
     <div class="paper-abstract-wrap">
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">A modern market economy can be clearly divided into two parts: the "real" and the "virtual". The former produces and exchanges tangible products whose natural use values satisfy human needs. The latter trades virtual products that meet human needs through socially determined value or price, where value or price itself functions as a use value. If the profit rates of the virtual economy and the real economy are equal, it implies that resources are appropriately allocated between the real and virtual sectors. However, under spontaneous market mechanisms, the development of the virtual economy often goes too far, giving rise to the so-called "shift from the real economy to the virtual economy", or remains underdeveloped and fails to fully play its role in improving resource allocation efficiency and mitigating risks. To guard against both excess and underdevelopment, the government must conduct effective supervision and regulation of the virtual economy so as to maintain dynamic balance between the virtual economy and the real economy and ensure high-quality development of the real economy.</div>
     </div>
-    <h4 id="part1-7-4"><a href="https://doi.org/10.5281/zenodo.23404630" target="_blank" rel="noopener noreferrer external">Upholding Marxist Political Economy in the Course of Its Development</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+
+    <h4 id="part1-6-4"><a href="https://doi.org/10.5281/zenodo.23404630" target="_blank" rel="noopener noreferrer external">Upholding Marxist Political Economy in the Course of Its Development</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Theory & Reform</em> | 2019</p>
     <div class="paper-abstract-wrap">
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">Two requirements must be met to uphold and develop Marxist political economy. The first is “to pursue development while upholding the theory”. “Development” without upholding the theory may easily lead astray. The second is “to uphold the theory in the course of its development”. “Upholding” without development will end up in a blind alley. Only by integrating the two can we enrich and develop Marxist political economy and socialist political economy with Chinese characteristics.</div>
     </div>
-    <h4 id="part1-7-5"><a href="https://doi.org/10.5281/zenodo.23404721" target="_blank" rel="noopener noreferrer external">Constructing Development Economics with Chinese Characteristics Based on the New Development Philosophy</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+
+    <h4 id="part1-6-5"><a href="https://doi.org/10.5281/zenodo.23404721" target="_blank" rel="noopener noreferrer external">Constructing Development Economics with Chinese Characteristics Based on the New Development Philosophy</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua, Lu Wenjing | <em>Academic Research</em> | 2016</p>
     <div class="paper-abstract-wrap">
         <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">China is a large developing country practicing a socialist market economy. Since the reform and opening up, China has achieved remarkable accomplishments in economic development and social progress with Chinese characteristics, creating a miracle in world history. At the Fifth Plenary Session of the 18th Central Committee of the Communist Party of China, the New Development Philosophy — namely innovation, coordination, green development, opening-up and sharing — was put forward. On the basis of an in-depth summary of the experience and lessons of human economic development, especially China’s economic development, as well as full absorption of valuable findings from previous development economics studies on economic issues in developing countries, the philosophy scientifically answers the questions of what to develop, how to develop and for whom to develop in the context of economic development with Chinese characteristics. It points to a development path that is more efficient, coordinated, sustainable, open and equitable, greatly enriches the connotation of Marxist political economy, and lays a solid foundation for constructing development economics with Chinese characteristics.</div>
     </div>
 
+    <h4 id="part1-6-6"><a href="https://doi.org/10.5281/zenodo.23579916" target="_blank" rel="noopener noreferrer external">On the Basic Economic System in the Primary Stage of Socialism and Its Scientific Basis</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua |  <em>Studies on Mao Zedong and Deng Xiaoping Theories</em> | 2010</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Fundamentally, the basic economic system of the primary stage of socialism, with public ownership as the mainstay and diverse forms of ownership developing side by side, is rooted in the fundamental tenet of Marxism that relations of production must conform to the development of productive forces. Comrade Deng Xiaoping concretized this tenet into the criterion of the “Three Favorables”. From an economic perspective, to properly assess whether something meets the Three Favorables requires systematic and comprehensive comparative analysis of different forms of ownership at the present stage: if, in a given sector, the losses incurred under private ownership exceed the costs of public ownership, then adopting public ownership in that sector satisfies the Three Favorables criterion and is therefore justified. Conversely, within the scope permitted by laws and regulations, private ownership or other forms of ownership should be allowed to develop freely.</div>
+    </div>
+
+    <h3 id="part1-7">7. Monographs</h3>
+
+    <h4 id="part1-7-1"><a href="https://doi.org/10.5281/zenodo.23293775" target="_blank" rel="noopener noreferrer">Marxist Economics: Principles and Applications</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | Shanghai University of Finance and Economics Press | 2021</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">This work employs the law of value as a unified fundamental principle to address theoretical and practical economic puzzles in traditional political economy and deliver policy implications.Chapter 1 derives the formula for unit commodity value and establishes the “value‑price equation”. Subsequent chapters use this framework to derive supply-demand curves, assess economic efficiency and resource allocation, and verify that the law of value remains valid after profit rate equalization. The theory is extended to joint production, multi-country and multi-period scenarios, covering joint-product value, international value, interest rates and economic growth. It further develops a general ground rent theory, discusses regulation of the virtual economy, and analyzes workers’ income growth relative to nominal GDP growth under a socialist market economy.</div>
+    </div>
+
+    <p id="part1-7-1-video" class="paper-meta video-note">
+    <strong>Video: Marxist Economics: Principles and Applications</strong>&nbsp;&nbsp;
+    <a href="https://www.bilibili.com/video/BV1AXnF68Eb8/?spm_id_from=333.1387.homepage.video_card.click&vd_source=2b7262d75c3027cf2efd5724e2d9874f" target="_blank" rel="noopener noreferrer external">Watch on Bilibili</a>
+    &nbsp;|&nbsp;
+    <a href="https://doi.org/10.5281/zenodo.23486965" target="_blank" rel="noopener noreferrer external">Watch on and Download from Zenodo</a>
+    </p>
+
+    <h4 id="part1-7-2"><a href="https://doi.org/10.5281/zenodo.23445895" target="_blank" rel="noopener noreferrer">Mathematical Principles of Marxist Economics</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | Shanghai People's Publishing House | 2010</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">This book seeks to deduce Marxist political economy mathematically starting from the labor theory of value, where the magnitude of value is determined by socially necessary labor time in its first sense. First, it introduces the production function to derive the value function and its variation rules. Second, using the value function (not the price function), it derives firms’ revenue, cost, and surplus-value functions. Third, based on the surplus-value function, it investigates the behavior of surplus-value-maximizing firms, including perfectly competitive, monopolistic and other imperfectly competitive firms. Fourth, it derives firms’ labor demand and product supply functions from surplus-value maximization. Fifth, it constructs theories of the aggregate labor and product markets from these functions and solves for their equilibrium values. Sixth, integrating the standalone labor-market and product-market theories, it develops a general equilibrium theory for both markets and elaborates how general equilibrium value is determined and changes.</div>
+    </div>
+
     <!-- Part 2 Programming Economics -->
     <h2 id="part2">II. Programming Economics</h2>
-    <h3 id="part2-1">1. Marx's Reproduction Theory &nbsp;&nbsp (Under Construction)</h3>
-    <h3 id="part2-2">2. Marx's Reproduction Theory with Technological Progress &nbsp;&nbsp;(Under Construction)</h3>
-    <h3 id="part2-3">3. Generalization of Marx's Reproduction Theory &nbsp;&nbsp;(Under Construction)</h3>
+    <h3 id="part2-1">1. Marx's Reproduction Theory&nbsp;&nbsp;(Under Construction)</h3>
+    <h3 id="part2-2">2. Marx's Reproduction Theory with Technological Progress&nbsp;&nbsp;(Under Construction)</h3>
+    <h3 id="part2-3">3. Generalization of Marx's Reproduction Theory&nbsp;&nbsp;(Under Construction)</h3>
 
     <h2 id="part3">III. Western Economics</h2>
     <h3 id="part3-1">1. Papers</h3>
 
-    <h4 id="part3-1-1"><a href="https://doi.org/10.5281/zenodo.23459063" target="_blank" rel="noopener noreferrer external">Comparative Advantage Efficiency in an n‑dimensional Linear Commodity Space</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part3-1-1"><a href="https://doi.org/10.5281/zenodo.23459063" target="_blank" rel="noopener noreferrer external">Comparative Advantage Efficiency in an n‑dimensional Linear Commodity Space</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Journal of Quantitative & Technical Economics</em> | 2006</p>
     <div class="paper-abstract-wrap">
-        <span class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</span>
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">The efficiency structure of comparative advantage under general conditions remains insufficiently explored. Assuming two countries with linear production possibility frontiers, this paper develops an approach to compute comparative advantage efficiency within commodity spaces of arbitrary dimensions. The analysis begins with simple low‑dimensional (2D and 3D) commodity spaces, then addresses comparative advantage in the four‑dimensional case. By observing, analyzing and generalizing these findings, the paper constructs a general theory of comparative advantage applicable to commodity spaces of any dimension.</div>
     </div>
 
-    <h4 id="part3-1-2"><a href="https://doi.org/10.5281/zenodo.23486202" target="_blank" rel="noopener noreferrer external">Equilibrium curve and elasticity of market</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part3-1-2"><a href="https://doi.org/10.5281/zenodo.23486202" target="_blank" rel="noopener noreferrer external">Equilibrium curve and elasticity of market</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Finance & Economics</em> | 2005</p>
     <div class="paper-abstract-wrap">
-        <span class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</span>
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">This paper advances two new concepts of equilibrium curve and equilibrium elasticity on the basis of commonly used supply and demand curves and elasticity. The author also discusses the main features of these two concepts and applies them into the analysis of the dynamic development of markets in the long run.</div>
     </div>
 
-    <h4 id="part3-1-3"><a href="https://doi.org/10.5281/zenodo.23486347" target="_blank" rel="noopener noreferrer external">On Moderate Trade Liberalization</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part3-1-3"><a href="https://doi.org/10.5281/zenodo.23486347" target="_blank" rel="noopener noreferrer external">On Moderate Trade Liberalization</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>World Economic Forum</em> | 2000</p>
     <div class="paper-abstract-wrap">
-        <span class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</span>
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">This paper discusses the impacts of trade liberalization on the import and export of various industries in light of their specific conditions (e.g., competitiveness in international markets). In particular, it analyzes the long-run and dynamic effects of trade liberalization on a country’s economic development based on industries’ heterogeneous characteristics regarding resource mobility, returns to scale, industrial linkages, and external economies or diseconomies. The scope, pace and extent of trade liberalization shall be determined in accordance with such long-run and dynamic effects.</div>
     </div>
 
-    <h4 id="part3-1-4"><a href="https://doi.org/10.5281/zenodo.23486482" target="_blank" rel="noopener noreferrer external">A Brief Discussion on Government Micro-regulation of Microeconomic Activities</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part3-1-4"><a href="https://doi.org/10.5281/zenodo.23486482" target="_blank" rel="noopener noreferrer external">A Brief Discussion on Government Micro-regulation of Microeconomic Activities</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Theoretical Anthology</em> | 1999</p>
     <div class="paper-abstract-wrap">
-        <span class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</span>
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">Market failures may occur not only at the macro level (such as economic crises and inflation), but also at the micro level, where the market fails to achieve efficient resource allocation. In response to micro-level market failures, governments need to implement supplementary micro-regulation. Starting from the definitions of microeconomics and microeconomic activities, this paper specifically analyzes the rationale, contents and instruments of government micro-regulation.</div>
     </div>
 
-    <h4 id="part3-1-5"><a href="https://doi.org/10.5281/zenodo.23486571" target="_blank" rel="noopener noreferrer external">Marketization of Management Rights: An Effective Constraint Mechanism</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part3-1-5"><a href="https://doi.org/10.5281/zenodo.23486571" target="_blank" rel="noopener noreferrer external">Marketization of Management Rights: An Effective Constraint Mechanism</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Theoretical Anthology</em> | 1998</p>
     <div class="paper-abstract-wrap">
-        <span class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</span>
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">The market for management rights allocates corporate management rights through competition, such as mergers and acquisitions between enterprises. By assigning enterprises to the most efficient operators, the marketization of management rights can raise firms’ market value and operational efficiency.</div>
     </div>
 
-    <h4 id="part3-1-6"><a href="https://doi.org/10.5281/zenodo.23486643" target="_blank" rel="noopener noreferrer external">The Theory and Practice of Economic Growth Abroad</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part3-1-6"><a href="https://doi.org/10.5281/zenodo.23486643" target="_blank" rel="noopener noreferrer external">The Theory and Practice of Economic Growth Abroad</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | <em>Shanghai Financial Education</em> | 1998</p>
     <div class="paper-abstract-wrap">
-        <span class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</span>
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">In the view of Western economists, apart from labor and capital, economic growth can also be attributed to residual factors, which mainly include human capital, resource allocation, economies of scale, institutional innovation, technological progress and so on. The contribution rate of these residual factors to economic growth is known as total factor productivity (TFP). Total factor productivity plays a pivotal role in the economic growth of modern Western countries.</div>
     </div>
 
-    <h4 id="part3-1-7"><a href="https://doi.org/10.5281/zenodo.23524408" target="_blank" rel="noopener noreferrer external">The General Theory: The Emergence of Keynesian Economics</a>&nbsp;&nbsp;(Full-text Chinese Download Available)</h4>
+    <h4 id="part3-1-7"><a href="https://doi.org/10.5281/zenodo.23524408" target="_blank" rel="noopener noreferrer external">The General Theory: The Emergence of Keynesian Economics</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | Wuhan University Press | 1997</p>
     <div class="paper-abstract-wrap">
-        <span class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</span>
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">The core content of Keynesian economics can be summarized in the following aspects. First, underemployment equilibrium is the normal state of capitalist society. Second, insufficient effective demand accounts for underemployment equilibrium. Third, the three fundamental psychological laws lead to insufficient effective demand. Fourth, the government’s adoption of demand management policies is the only feasible solution to unemployment. Although Keynes acknowledged the existence of economic crises and unemployment, his interpretation was rather conservative. He attributed these phenomena to certain fundamental psychological laws of human beings while denying that the root cause lies in the capitalist system.</div>
     </div>
 
-    <h4 id="part3-1-8"><a href="https://doi.org/10.5281/zenodo.23524560" target="_blank" rel="noopener noreferrer external">The Development of Keynesian Economics</a>&nbsp;&nbsp;(Full-text Chinese Download Available)</h4>
+    <h4 id="part3-1-8"><a href="https://doi.org/10.5281/zenodo.23524560" target="_blank" rel="noopener noreferrer external">The Development of Keynesian Economics</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | Wuhan University Press | 1997</p>
     <div class="paper-abstract-wrap">
-        <span class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</span>
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">After the publication of Keynes’s The General Theory, the first major development of Keynesian economics was the IS-LM model proposed by Hicks in 1937. Starting from the 1940s, Keynesian economists worked to extend the IS-LM framework into a more comprehensive aggregate demand–aggregate supply model that incorporates the supply side of the economy. In the late 1950s, Samuelson and others synthesized Keynesian economics with traditional classical economics and put forward the so-called “neoclassical synthesis”, which was later revised into “mainstream post-Keynesian economics” that accommodates monetarism and other elements. From the 1960s onward, Keynesian economists sought microfoundations for macroeconomic analysis, which led to the emergence of general disequilibrium theory. After the 1980s, in response to challenges from neoclassical economics, the so-called “New Keynesian economics” was developed. It adopts the style of neoclassical economics, even incorporating rational expectations, yet arrives at Keynesian conclusions.</div>
+    </div>
+
+    <h4 id="part3-1-15"><a href="https://doi.org/10.5281/zenodo.23608746" target="_blank" rel="noopener noreferrer external">A Brief Discussion on the Optimal Control of Pollution</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Ecological Economy</em> | 1997</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">From an economic perspective, this paper elaborates on the optimal control of pollution, namely determining the optimal level and optimal allocation of pollution control, as well as the approaches to achieving pollution control.</div>
+    </div>
+
+    <h4 id="part3-1-17"><a href="https://doi.org/10.5281/zenodo.23579391" target="_blank" rel="noopener noreferrer external">New Keynesian Economics</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Teaching and Research</em> | 1996</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Emerging in the mid-1980s, New Keynesian Economics is regarded as a “revival” of Keynesianism, which had been in decline since the 1960s. So far, however, the so-called New Keynesian Economics is merely an eclectic collection of diverse micro-Keynesian theories rather than a coherent theoretical system. Broadly speaking, this body of literature can be divided into three major strands: the nominal rigidity school, the real rigidity school, and the non-rigidity school. This paper provides a comprehensive introduction and in-depth analysis of New Keynesian Economics as well as the core arguments and interrelations of its respective strands.</div>
+    </div>
+
+    <h4 id="part3-1-18"><a href="https://doi.org/10.5281/zenodo.23608800" target="_blank" rel="noopener noreferrer external">How Does the Government Regulate Firms’ Production</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Economic Theory and Business Management</em> | 1996</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">When a firm’s optimal output diverges from the social optimal output, government intervention in the firm’s production to a certain extent becomes necessary, so as to bring the firm’s optimal output as close as possible to the social optimum. The government has a variety of intervention instruments. Examples include price policies, tax (and subsidy) policies, and so forth. By restricting the range of price variation and adjusting the levels of taxes and subsidies, the government can alter the market demand for the firm’s products as well as the firm’s production costs. This changes the firm’s marginal revenue and marginal cost, ultimately achieving the goal of modifying the profit‑maximizing output of the firm.
+</div>
+    </div>
+
+    <h4 id="part3-1-19"><a href="https://doi.org/10.5281/zenodo.23608439" target="_blank" rel="noopener noreferrer external">Disequilibrium and Market Failure</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Finance & Economics</em> | 1996</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">In addition to several types of market failure commonly discussed in traditional Western economics textbooks, such as monopoly, externalities, public goods and incomplete information, the emergence of general disequilibrium theory and New Keynesianism in the 1970s has drawn growing attention to inefficiency arising from the mismatch between market supply and demand, which is known as “disequilibrium market failure”. Like other forms of market failure, disequilibrium market failure generates inefficiency at the microeconomic level. Moreover, it gives rise to inefficiency at the macroeconomic level: rigid prices (and wages) lead to involuntary unemployment and fluctuations in employment and output. Such macroeconomic inefficiency can in fact be regarded as “large‑scale market failure”.</div>
+    </div>
+
+    <h4 id="part3-1-20"><a href="https://doi.org/10.5281/zenodo.23650643" target="_blank" rel="noopener noreferrer external">Recent Developments in Western Business Cycle Theory</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Economics Information</em> | 1995</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Since the 1970s and 1980s, research on business cycle theory has regained momentum in Western economics, giving rise to many new business cycle models. This paper briefly introduces the major developments in this field, including catastrophe cycle theory, chaos cycle theory, disequilibrium models of the cycle, sunspot cycle theory, partisan cycle theory, and innovation cycle theory.</div>
+    </div>
+
+    <h4 id="part3-1-25"><a href="https://doi.org/10.5281/zenodo.23650168" target="_blank" rel="noopener noreferrer external">An Economic Analysis of Insurance Behavior</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Nankai Economic Studies</em> | 1992</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Assuming that the insurer, as the producer of insurance services, aims to maximize profit, while the policyholder, as the consumer of insurance services, aims to maximize utility, this paper employs the economic theory of maximizing behavior to analyze the existence, development, and determinants of insurance services. The conclusions are as follows: The development of insurance services primarily depends on three factors: the degree of risk, the certainty equivalent (or risk aversion), and the value of property. Insurance services develop with an increase in the degree of risk (within a certain range), a strengthening of risk aversion, and an increase in the value of property. In particular, when the degree of risk remains constant, insurance services will develop as the value of property increases. Consequently, it can be predicted that with socio-economic development and rising income levels, the insurance industry will become more prosperous.</div>
+    </div>
+
+    <h4 id="part3-1-27"><a href="https://doi.org/10.5281/zenodo.23608527" target="_blank" rel="noopener noreferrer external">Supply-side Economics and Keynesian Economics: A Comparative Analysis of Theories and Policies</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | Economic Daily Press | 1986</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">This paper consists of three parts. The first part compares supply-side economics and Keynesian economics at the fundamental theoretical level. The second part elaborates on their specific theories and policies. It first discusses the demand-side effects of policies, and then examines the supply-side effects of policies from various dimensions of government budget, including government spending, taxation, bond issuance and monetary expansion. The third part presents the conclusions drawn from this comparative analysis.</div>
+    </div>
+
+    <h4 id="part3-1-28"><a href="https://doi.org/10.5281/zenodo.23650887" target="_blank" rel="noopener noreferrer external">Recent Developments in Modern Western Economic Theory</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Economics Information</em> | 1986</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">In 1984, the British magazine The Economist published a series of short articles on economics. These articles systematically and concisely reviewed the development of Western economics over the nearly fifty years since the publication of Keynes's The General Theory of Employment, Interest and Money, covering aspects such as aggregate demand, aggregate supply, supply-demand relationships, and equilibrium versus disequilibrium theory. The articles also made predictions about the future trends of economic theory.</div>
+    </div>
+
+    <h4 id="part3-1-29"><a href="https://doi.org/10.5281/zenodo.23650478" target="_blank" rel="noopener noreferrer external">A Review of Modigliani's Theory of Capital Cost</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Economics Information</em> | 1986</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Modigliani's theorems on capital costs are regarded in Western economics as the foundation of modern corporate finance theory, yet they rely on the assumption of perfect markets. Only under conditions of perfect markets can investors' arbitrage processes truly play the role that Modigliani envisioned. However, in the real world, markets are invariably imperfect; consequently, the arbitrage process cannot eliminate differences in market value (and thus in capital costs) among firms with different capital structures. As a result, Modigliani's theorems no longer hold.</div>
+    </div>
+
+    <h4 id="part3-1-30"><a href="https://doi.org/10.5281/zenodo.23650330" target="_blank" rel="noopener noreferrer external">A Review of Supply-Side Tax Theory</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>Taxation Research</em> | 1986</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Supply-side economists argue that the key problem facing the U.S. economy is excessively high tax rates, and the solution lies in tax cuts. They maintain that substantial tax reductions would ensure the healthy development of capitalism. This view essentially denies the existence of the fundamental contradiction of capitalism—between the socialization of production and private appropriation—and fails to recognize this as the root cause of all ills in the capitalist system. Nevertheless, supply-side analysis offers valuable insights regarding the various impacts of tax rates on economic activity and the relationship between tax rates and tax revenue, providing useful references for our current tax system reform.</div>
+    </div>
+
+    <h4 id="part3-1-31"><a href="https://doi.org/10.5281/zenodo.23649918" target="_blank" rel="noopener noreferrer external">A Brief Introduction to Franco Modigliani, the 1985 Nobel Laureate in Economics, and His Theories</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
+    <p class="paper-meta">Feng Jinhua | <em>The Journal of World Economy</em> | 1986</p>
+    <div class="paper-abstract-wrap">
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
+        <div class="abs-content">Franco Modigliani was awarded the 1985 Nobel Prize in Economics for formulating the life-cycle hypothesis of household saving and for elucidating theorems concerning corporations and the estimation of capital costs. His life-cycle hypothesis can, to some extent, explain certain phenomena in capitalist economies, but it obscures the class distinctions underlying consumption and saving. His theorems on capital costs are regarded in Western economics as the foundation of modern corporate finance theory, yet they rely on the assumption of perfect markets. Only under conditions of perfect markets can investors' arbitrage processes truly play the role that Modigliani envisioned. However, in the real world, markets are invariably imperfect; consequently, the arbitrage process cannot eliminate differences in market value (and thus in capital costs) among firms with different capital structures. As a result, Modigliani's theorems no longer hold.</div>
     </div>
 
     <h3 id="part3-2">2. Works</h3>
 
-    <h4 id="part3-2-1"><a href="https://doi.org/10.5281/zenodo.23459357" target="_blank" rel="noopener noreferrer external">Economic Globalization and National Competitive Advantage</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part3-2-1"><a href="https://doi.org/10.5281/zenodo.23459357" target="_blank" rel="noopener noreferrer external">Economic Globalization and National Competitive Advantage</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | Shanghai University of Finance and Economics Press | 2008</p>
     <div class="paper-abstract-wrap">
-        <span class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</span>
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">This book summarizes lessons from trade liberalization in developing countries and reviews existing trade theories. It conducts an in-depth comparative study of static and dynamic gains and costs of international trade. It especially examines the roles of resource allocation, economies of scale, industrial linkages and external effects in international trade, and thereby identifies the appropriate trade liberalization.</div>
     </div>
 
-    <h4 id="part3-2-2"><a href="https://doi.org/10.5281/zenodo.23552770" target="_blank" rel="noopener noreferrer external">Exercises and Solutions for Western Economics</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part3-2-2"><a href="https://doi.org/10.5281/zenodo.23552770" target="_blank" rel="noopener noreferrer external">Exercises and Solutions for Western Economics</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | Shanghai People's Publishing House | 2006</p>
     <div class="paper-abstract-wrap">
-        <span class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</span>
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">This book is a supporting companion volume to Western Economics written by Feng Jinhua (Shanghai University of Finance and Economics Press, 2005 edition).
 The exercise section of this book contains four types of questions: Concept Questions, Essay Questions, Multiple-Choice Questions, and Computational Questions. The exercises are arranged in exactly the same order as the chapters and sections of the main textbook.
 The answers provided in the Reference Answers section are in outline form for Concept Questions and Essay Questions, since more detailed elaborations can be found in the main textbook. In contrast, the solutions to Computational Questions are presented in as much detail as possible. Readers may therefore use these computational solutions as supplementary learning materials to the textbook.
@@ -809,10 +910,10 @@ This book is intended for two groups of users: students studying Western Economi
 </div>
     </div>
 
-    <h4 id="part3-2-3"><a href="https://doi.org/10.5281/zenodo.23553105" target="_blank" rel="noopener noreferrer external">Western Economics</a>&nbsp;&nbsp; (Full-text Chinese Download Available)</h4>
+    <h4 id="part3-2-3"><a href="https://doi.org/10.5281/zenodo.23593497" target="_blank" rel="noopener noreferrer external">Western Economics</a>&nbsp;&nbsp;(Full-text Chinese version available for download)</h4>
     <p class="paper-meta">Feng Jinhua | Shanghai University of Finance and Economics Press | 2005</p>
     <div class="paper-abstract-wrap">
-        <span class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</span>
+        <button type="button" class="abs-btn" onclick="toggleAbs(this)">Expand Abstract</button>
         <div class="abs-content">This textbook is intended for undergraduate students.
 Compared with other similar textbooks, two features of this book deserve special explanation.
 The first is its structure. Instead of adopting the conventional dichotomy of “microeconomics” and “macroeconomics”, the book is organized into parts entitled “The Individual”, “The Firm” and “The Market”. The part on the market is further split into “Individual Markets” and “Aggregate Markets”. The first three parts — “The Individual”, “The Firm” and “Individual Markets” — correspond to what is commonly known as microeconomics, while the fourth part, “Aggregate Markets”, corresponds to macroeconomics.
@@ -851,7 +952,7 @@ function collapseAll(){
     <!-- ===== Footer 页脚 ===== -->
     <footer>
       © 2026 Feng Jinhua. All rights reserved.<br>
-      ORCID: <a href="https://orcid.org/0009-0004-0328-6136" style="color:#0066cc">0009-0004-0328-6136</a> | Zenodo Archive
+    ORCID: <a href="https://orcid.org/0009-0004-0328-6136" target="_blank" rel="noopener noreferrer" style="color:#0066cc">0009-0004-0328-6136</a>
     </footer>
 </body>
 </html>
